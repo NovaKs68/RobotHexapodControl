@@ -14,9 +14,6 @@ uint8_t checksum(uint8_t *fram, uint8_t buflen);
 int main()
 {
 
-    auto servo1{Servo(2)};
-    servo1.READ_id();
-
     std::cout << "Debut du programme !" << std::endl;
 
     //-------------------------
@@ -33,8 +30,7 @@ int main()
     {
 
         //ERROR - CAN'T OPEN SERIAL PORT
-        std::cout << "Error - Unable to open UART.  Ensure it is not in use by another application\n"
-                  << std::endl;
+        std::cout << "Error - Unable to open UART.  Ensure it is not in use by another application\n" << std::endl;
     }
 
     //CONFIGURE THE UART
@@ -47,6 +43,13 @@ int main()
     options.c_lflag = 0;
     tcflush(device, TCIFLUSH);
     tcsetattr(device, TCSANOW, &options);
+
+    //-------------------------
+    //------ TEST OBJETS ------
+    //-------------------------
+
+    auto servo1{Servo(2,device)};
+    servo1.READ_id();
 
     //-------------------------
     //------ DEFINITIONS ------
@@ -75,6 +78,10 @@ int main()
         angle = 240.0;
     else if (angle < 0.0)
         angle = 0.0;
+
+    Communication::openUART(3);
+    Communication::openUART(6);
+    
 
     // Je commence par calculer avec des flottants pour garder la précision
 
