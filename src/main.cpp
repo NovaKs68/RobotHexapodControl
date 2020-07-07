@@ -20,8 +20,9 @@ int main()
     //------ TEST OBJETS ------
     //-------------------------
  
-     auto servo1{Servo(2)};
+     auto servo1{Servo(1)};
      servo1.READ_id();
+     servo1.WRITE_Servo_Angle(25,1); // Place le servo à 25 degrés en 1 seconde
 
     //-------------------------
     //------ DEFINITIONS ------
@@ -62,7 +63,7 @@ int main()
     unsigned short valueAngleUs = (unsigned short)valueAngleF;
     std::cout << "VALUE : " << valueAngleUs << std::endl;
 
-    // Je calcule le poids faible
+    // Je calcule le poids faible 
 
     lsbAngle = (uint8_t)(valueAngleUs & (uint16_t)0x00FF);
 
@@ -96,35 +97,8 @@ int main()
     cmdPacket[8] = msbTime;
     cmdPacket[7] = lsbTime;
 
-    // CHECKSUM :
-
-    // checksum(cmdPacketId, 6);
-    // checksum(test1, tailleTableau);
-    // checksum(cmdPacket, tailleTableau);
-
-    //-------------------------
-    //------ SEND PACKET ------
-    //-------------------------
-
-    // write(device, test1, tailleTableau);
-    // write(device, cmdPacket, tailleTableau);
-    // write( device, cmdPacketId, 6) ;
-
-    // lose(device); // Fermeture du port
-
     return 0;
 }
-
-// uint8_t checksum(uint8_t *buf, uint8_t buflen)
-// {
-//     uint16_t cksum = {0};
-
-//     for (int i = 2; i < buflen - 1; i++)
-//         cksum += buf[i];
-//     buf[buflen - 1] = 0xff - cksum;
-
-//     return ~cksum;
-// }
 
 // uint8_t cmdPacketStart[6] = {0x55,0x55,0x01,0x03,0x0B,0x0F};
 // usleep(1000000); // wait 1 seconde

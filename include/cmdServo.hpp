@@ -10,7 +10,7 @@ public:
 
     Servo(int id);
     void READ_id();
-    char WRITE_Servo_Angle(float angle, float time);
+    void WRITE_Servo_Angle(float angle, float time);
 
 private:
 
