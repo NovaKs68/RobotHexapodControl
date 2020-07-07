@@ -17,39 +17,11 @@ int main()
     std::cout << "Debut du programme !" << std::endl;
 
     //-------------------------
-    //----- SETUP USART 0 -----
-    //-------------------------
-
-    //At bootup, pins 8 and 10 are already set to UART0_TXD, UART0_RXD (ie the alt0 function) respectively
-    int device = -1;
-
-    //OPEN THE UART
-
-    device = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_NDELAY); //Open in non blocking read/write mode
-    if (device == -1)
-    {
-
-        //ERROR - CAN'T OPEN SERIAL PORT
-        std::cout << "Error - Unable to open UART.  Ensure it is not in use by another application\n" << std::endl;
-    }
-
-    //CONFIGURE THE UART
-
-    struct termios options;
-    tcgetattr(device, &options);
-    options.c_cflag = B115200 | CS8 | CLOCAL | CREAD; // Set baud rate
-    options.c_iflag = IGNPAR;
-    options.c_oflag = 0;
-    options.c_lflag = 0;
-    tcflush(device, TCIFLUSH);
-    tcsetattr(device, TCSANOW, &options);
-
-    //-------------------------
     //------ TEST OBJETS ------
     //-------------------------
-
-    auto servo1{Servo(2,device)};
-    servo1.READ_id();
+ 
+     auto servo1{Servo(2)};
+     servo1.READ_id();
 
     //-------------------------
     //------ DEFINITIONS ------
@@ -79,8 +51,6 @@ int main()
     else if (angle < 0.0)
         angle = 0.0;
 
-    Communication::openUART(3);
-    Communication::openUART(6);
     
 
     // Je commence par calculer avec des flottants pour garder la précision
@@ -128,33 +98,33 @@ int main()
 
     // CHECKSUM :
 
-    checksum(cmdPacketId, 6);
-    checksum(test1, tailleTableau);
-    checksum(cmdPacket, tailleTableau);
+    // checksum(cmdPacketId, 6);
+    // checksum(test1, tailleTableau);
+    // checksum(cmdPacket, tailleTableau);
 
     //-------------------------
     //------ SEND PACKET ------
     //-------------------------
 
     // write(device, test1, tailleTableau);
-    write(device, cmdPacket, tailleTableau);
+    // write(device, cmdPacket, tailleTableau);
     // write( device, cmdPacketId, 6) ;
 
-    close(device); // Fermeture du port
+    // lose(device); // Fermeture du port
 
     return 0;
 }
 
-uint8_t checksum(uint8_t *buf, uint8_t buflen)
-{
-    uint16_t cksum = {0};
+// uint8_t checksum(uint8_t *buf, uint8_t buflen)
+// {
+//     uint16_t cksum = {0};
 
-    for (int i = 2; i < buflen - 1; i++)
-        cksum += buf[i];
-    buf[buflen - 1] = 0xff - cksum;
+//     for (int i = 2; i < buflen - 1; i++)
+//         cksum += buf[i];
+//     buf[buflen - 1] = 0xff - cksum;
 
-    return ~cksum;
-}
+//     return ~cksum;
+// }
 
 // uint8_t cmdPacketStart[6] = {0x55,0x55,0x01,0x03,0x0B,0x0F};
 // usleep(1000000); // wait 1 seconde

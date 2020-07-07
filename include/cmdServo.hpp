@@ -8,7 +8,7 @@ class Servo {
 
 public:
 
-    Servo(int id, int device);
+    Servo(int id);
     void READ_id();
     char WRITE_Servo_Angle(float angle, float time);
 
