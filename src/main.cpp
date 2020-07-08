@@ -22,7 +22,7 @@ int main()
  
      auto servo1{Servo(1)};
      servo1.READ_id();
-     servo1.WRITE_Servo_Angle(25,1); // Place le servo à 25 degrés en 1 seconde
+     // servo1.WRITE_Servo_Angle(25,1); // Place le servo à 25 degrés en 1 seconde
 
     //-------------------------
     //------ DEFINITIONS ------
@@ -39,66 +39,7 @@ int main()
     // Doit retrouner : 0x55, 0x55, 0x01, 0x07, 0x01, 3c, 0x00, 0x00, 0x00, 0x45;
     // Devrait être bon avec un déplacement de 60/1000 en 0 millis le checksum fait donc 69 (à tester)
 
-    //-------------------------
-    //--------- VALUE ---------
-    //-------------------------
-
-    // ANGLE :
-
-    // Je limite la course à 0 – 240.0
-
-    if (angle > 240.0)
-        angle = 240.0;
-    else if (angle < 0.0)
-        angle = 0.0;
-
-    
-
-    // Je commence par calculer avec des flottants pour garder la précision
-
-    float valueAngleF = angle / 0.24;
-
-    // Je caste dans un entier court non signé
-
-    unsigned short valueAngleUs = (unsigned short)valueAngleF;
-    std::cout << "VALUE : " << valueAngleUs << std::endl;
-
-    // Je calcule le poids faible 
-
-    lsbAngle = (uint8_t)(valueAngleUs & (uint16_t)0x00FF);
-
-    // Je calcule le poids fort
-
-    msbAngle = (uint8_t)((valueAngleUs & (uint16_t)0xFF00) >> 8);
-
-    // BIG ENDIAN
-    cmdPacket[6] = msbAngle;
-    cmdPacket[5] = lsbAngle;
-    std::cout << "MSBANGLE : " << std::dec << (int)msbAngle << "LSBANGLE : " << std::dec << (int)lsbAngle << std::endl;
-
-    // TIME :
-
-    if (angle > 3.0)
-        angle = 3.0;
-    else if (angle < 0.0)
-        angle = 0.0;
-
-    float valueTimeF = time * 1000;
-
-    unsigned short valueTimeUs = (unsigned short)valueTimeF;
-
-    lsbTime = (uint8_t)(valueTimeUs & (uint16_t)0x00FF);
-
-    //// Je calcule le poids faible de time
-
-    msbTime = (uint8_t)((valueTimeUs & (uint16_t)0xFF00) >> 8);
-
-    // BIG ENDIAN
-    cmdPacket[8] = msbTime;
-    cmdPacket[7] = lsbTime;
-
     return 0;
 }
 
 // uint8_t cmdPacketStart[6] = {0x55,0x55,0x01,0x03,0x0B,0x0F};
-// usleep(1000000); // wait 1 seconde

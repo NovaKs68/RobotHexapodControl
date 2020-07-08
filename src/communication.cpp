@@ -65,13 +65,37 @@ Communication& Communication::Instance()
     return m_instance;
 }
 
-void Communication::COM(int id, uint8_t cmdValue, int cmdLen, uint8_t parameters[], int parametersLen)
+void Communication::COM(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)
 {
     uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen);
-    write(m_device, cmdPacket, cmdLen);
+    write(m_device, cmdPacket, cmdPacketLen);
+    // Ajouter par la suite l'écoute de la réponse qui va essayer de lire toutes les millisecondes
+
+    uint8_t result[cmdPacketLen] = {0};
+    int nbBytes{cmdPacketLen};
+    for (int i{0}; result[0] == 0 && i < 15; i++)
+    {
+        read(m_device, result, nbBytes);
+        usleep(1000); // wait 1 millisec
+    }
+    
+    if (result[0] != 0)
+    {
+        std::cout << "Nous avons un résultat !" << result << std::endl;
+    } else 
+    {
+        std::cout << "Erreur aucun packet n'a été reçus en retour !" << std::endl;
+    }
 }
 
-void Communication::openUART()
+void Communication::WRITE(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)
 {
+    uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen);
+    write(m_device, cmdPacket, cmdPacketLen);
+}
+
+void Communication::READ(uint8_t result[], int nbBytes)
+{
+    read(m_device, result, nbBytes);
 }
 

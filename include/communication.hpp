@@ -17,8 +17,8 @@ public:
 
     // Objects
     void COM(int id,uint8_t cmdValue, int cmdLen, uint8_t parameters[] = 0, int parametersLen = 0);
-    char WRITE_Servo_Angle(float angle, float time);
-    static void openUART();
+    void WRITE(int id, uint8_t cmdValue, int cmdLen, uint8_t parameters[], int parametersLen);
+    void READ(uint8_t result[], int nbBytes);
 
 private:
 
