@@ -19,9 +19,13 @@ int main()
     //-------------------------
     //------ TEST OBJETS ------
     //-------------------------
- 
+    auto servo2{Servo(2)};
      auto servo1{Servo(1)};
-     servo1.READ_id();
+     
+     int result2 = servo2.READ_id();
+     int result1 = servo1.READ_id();
+     
+     std::cout << "Depuis le main on recois pour le servo 1 " << result1 << " et le servo2 " << result2 << std::endl;
      // servo1.WRITE_Servo_Angle(25,1); // Place le servo à 25 degrés en 1 seconde
 
     //-------------------------

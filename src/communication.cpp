@@ -65,27 +65,40 @@ Communication& Communication::Instance()
     return m_instance;
 }
 
-void Communication::COM(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)
+int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketLen, uint8_t parameters[], int parametersLen)
 {
     uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen);
     write(m_device, cmdPacket, cmdPacketLen);
     // Ajouter par la suite l'écoute de la réponse qui va essayer de lire toutes les millisecondes
 
-    uint8_t result[cmdPacketLen] = {0};
-    int nbBytes{cmdPacketLen};
-    for (int i{0}; result[0] == 0 && i < 15; i++)
+    uint8_t result[cmdPacketLen + 1] = {0};
+    size_t nbBytes{(size_t)cmdPacketLen + 1};
+    int readBytes{-1};
+    for (int i{0}; (readBytes == -1) && i < 10; i++)
     {
-        read(m_device, result, nbBytes);
-        usleep(1000); // wait 1 millisec
+        readBytes = read(m_device, result, nbBytes);
+        usleep(100000); // wait 1 millisec
+        std::cout << readBytes << std::endl;
     }
+
+    // readBytes = read(m_device, result, nbBytes);
     
-    if (result[0] != 0)
+    if (readBytes == nbBytes && result[2] == cmdPacket[2] && result[4] == cmdPacket[4]) // Test afin d'être sur que ce soit la réponse de la bonne cmd
     {
-        std::cout << "Nous avons un résultat !" << result << std::endl;
+        switch (responseLen) // la valeur retourné ne dépasse jamais soit 4 ou soit 2 a tester avec servo angle read
+        {
+            case 1:
+                std::cout << "La réponse est " << (int)result[5] << std::endl;
+                return (int)result[5];
+            case 2:
+                std::cout << "La réponse attendu est d'un longeur de 2 pas encore test attention risque d'erreur" << std::endl;
+                return (int)result[5],(int)result[6];
+        }
     } else 
     {
         std::cout << "Erreur aucun packet n'a été reçus en retour !" << std::endl;
     }
+    return -1;
 }
 
 void Communication::WRITE(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)

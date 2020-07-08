@@ -9,8 +9,9 @@ class Servo {
 public:
 
     Servo(int id);
-    void READ_id();
+    int READ_id();
     void WRITE_Servo_Angle(float angle, float time);
+    int READ_Servo_Angle();
 
 private:
 

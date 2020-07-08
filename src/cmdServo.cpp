@@ -5,12 +5,16 @@ Servo::Servo(int id) : a_id{id} {
     std::cout << "Initialisation d'un servo d'id " << a_id << std::endl;
 }
 
-void Servo::READ_id() { // doit retourner cmdValue et parmts
+int Servo::READ_id() { // doit retourner cmdValue et parmts
     Communication& servo=Communication::Instance(); // Ouverture de la communication si elle a pas déjà été ouverte
 
     uint8_t cmdValue{0x0E};
-    int cmdLen {6};
-    servo.COM(a_id, cmdValue, cmdLen);
+    int cmdLen{6};
+    int responseLen{1}; // Il attend 1 réponse : l'id
+
+    int result = servo.COM(a_id, cmdValue, responseLen, cmdLen);
+    
+    return result;
 }
  
 void Servo::WRITE_Servo_Angle(float angle, float time) { // doit déplacer le servo à l'angle donnée pour la vitesse donnée
@@ -40,5 +44,6 @@ void Servo::WRITE_Servo_Angle(float angle, float time) { // doit déplacer le se
     uint8_t cmdValue{0x01};
     int cmdLen{10};
 
-    servo.COM(a_id, cmdValue, cmdLen, parameters, parametersLen);
+
+    servo.WRITE(a_id, cmdValue, cmdLen, parameters, parametersLen);
 }
