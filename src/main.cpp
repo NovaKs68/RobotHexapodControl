@@ -19,13 +19,41 @@ int main()
     //-------------------------
     //------ TEST OBJETS ------
     //-------------------------
+
+    // TEST PATTE
+
+    //  auto servo16{Servo(16)};
+    //  auto servo17{Servo(17)};
+    //  auto servo18{Servo(18)};
+
+    // servo16.WRITE_Servo_Angle(140,0);
+    // servo17.WRITE_Servo_Angle(140,0);
+    // servo18.WRITE_Servo_Angle(180,0);
+
+
+
+     // int result2 = servo2.READ_id();
+     // servo2.WRITE_Servo_Angle(90,0);
+     // int result1 = servo1.READ_id();
+     //servo1.WRITE_Servo_Angle(0,3);
+     //usleep(3000000);
+     //servo1.WRITE_Servo_Angle(240,3);
+     //usleep(3000000);
+     //servo1.WRITE_Servo_Angle(0,3);
+
+    auto servo1{Servo(1)};
     auto servo2{Servo(2)};
-     auto servo1{Servo(1)};
+    auto servo3{Servo(3)};
+
+    //servo1.WRITE_Servo_Angle(120,0);
+    //servo2.WRITE_Servo_Angle(120,0);
+    servo3.WRITE_Servo_Angle(120,0);
+    //int result3 = servo3.READ_id();
+    usleep(100000);
+    servo3.WRITE_Servo_Angle(200,0);
+
      
-     int result2 = servo2.READ_id();
-     int result1 = servo1.READ_id();
-     
-     std::cout << "Depuis le main on recois pour le servo 1 " << result1 << " et le servo2 " << result2 << std::endl;
+     // std::cout << "Depuis le main on recois pour le servo 1 " << result1 << " et le servo2 " << result2 << std::endl;
      // servo1.WRITE_Servo_Angle(25,1); // Place le servo à 25 degrés en 1 seconde
 
     //-------------------------

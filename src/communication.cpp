@@ -21,7 +21,6 @@ uint8_t *fnctCreatePacket(int id, uint8_t cmdValue, uint8_t parameters[], int pa
     cmdPacket[3] = (uint8_t)(packetLen-3);
     cmdPacket[4] = (uint8_t)cmdValue;
     for (int i=0; i<parametersLen; i++) cmdPacket[5+i] = (uint8_t)parameters[i];
-    std::cout << "Longueur du tableau " << (uint8_t)id << std::endl;
     // CHECKSUM :
 
     uint16_t cksum = {0};
@@ -77,7 +76,7 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
     for (int i{0}; (readBytes == -1) && i < 10; i++)
     {
         readBytes = read(m_device, result, nbBytes);
-        usleep(100000); // wait 1 millisec
+        usleep(1000); // wait 1 millisec
         std::cout << readBytes << std::endl;
     }
 
@@ -85,14 +84,14 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
     
     if (readBytes == nbBytes && result[2] == cmdPacket[2] && result[4] == cmdPacket[4]) // Test afin d'être sur que ce soit la réponse de la bonne cmd
     {
-        switch (responseLen) // la valeur retourné ne dépasse jamais soit 4 ou soit 2 a tester avec servo angle read
+        switch (responseLen) // la valeur retournée ne dépasse jamais soit 4 ou soit 2 a tester avec servo angle read
         {
             case 1:
                 std::cout << "La réponse est " << (int)result[5] << std::endl;
                 return (int)result[5];
             case 2:
-                std::cout << "La réponse attendu est d'un longeur de 2 pas encore test attention risque d'erreur" << std::endl;
-                return (int)result[5],(int)result[6];
+                //uint16_t res =(uint8_t)result[5], (uint8_t)result[6];
+                return ((uint16_t)result[6]) << 8 | ((uint16_t) result[5]); // Récupération de l'octet qui combine le higher et lower bits
         }
     } else 
     {
@@ -103,7 +102,8 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
 
 void Communication::WRITE(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)
 {
-    uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen);
+    std::cout << "write " << cmdValue << std::endl;
+    uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen); // write ne fonctionne plus
     write(m_device, cmdPacket, cmdPacketLen);
 }
 
