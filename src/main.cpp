@@ -41,16 +41,54 @@ int main()
      //usleep(3000000);
      //servo1.WRITE_Servo_Angle(0,3);
 
-    auto servo1{Servo(1)};
-    auto servo2{Servo(2)};
-    auto servo3{Servo(3)};
+//     auto servo1{Servo(1)};
+//     auto servo2{Servo(2)};
+//     auto servo3{Servo(3)};
+//     auto servo4{Servo(4)};
+//     auto servo5{Servo(5)};
+//     auto servo6{Servo(6)};
+//     auto servo7{Servo(7)};
+//     auto servo8{Servo(8)};
+//     auto servo9{Servo(9)};
+//     auto servo10{Servo(10)};
+//     auto servo11{Servo(11)};
+//     auto servo12{Servo(12)};
+//     auto servo13{Servo(13)};
+//     auto servo14{Servo(14)};
+//     auto servo15{Servo(15)};
+//     auto servo16{Servo(16)};
+//     auto servo17{Servo(17)};
+//     auto servo18{Servo(18)};
 
-    //servo1.WRITE_Servo_Angle(120,0);
-    //servo2.WRITE_Servo_Angle(120,0);
-    servo3.WRITE_Servo_Angle(120,0);
-    //int result3 = servo3.READ_id();
-    usleep(100000);
-    servo3.WRITE_Servo_Angle(200,0);
+   
+// usleep(3000000);
+//     servo1.WRITE_Servo_Angle(120,0);
+//     servo2.WRITE_Servo_Angle(80,0);
+//     servo3.WRITE_Servo_Angle(60,0);
+//     servo4.WRITE_Servo_Angle(120,0);
+//     servo5.WRITE_Servo_Angle(80,0);
+//     servo6.WRITE_Servo_Angle(40,0);
+//     servo7.WRITE_Servo_Angle(120,0);
+//     servo8.WRITE_Servo_Angle(80,0);
+//     servo9.WRITE_Servo_Angle(60,0);
+//     servo10.WRITE_Servo_Angle(120,0);
+//     servo11.WRITE_Servo_Angle(80,0);
+//     servo12.WRITE_Servo_Angle(60,0);
+//     servo13.WRITE_Servo_Angle(120,0);
+//     servo14.WRITE_Servo_Angle(80,0);
+//     servo15.WRITE_Servo_Angle(40,0);
+//     servo16.WRITE_Servo_Angle(120,0);
+//     servo17.WRITE_Servo_Angle(80,0);
+//     servo18.WRITE_Servo_Angle(60,0);
+
+    auto servo254{Servo(254)};
+    auto servo3{Servo(3)};
+    auto servo6{Servo(6)};
+
+    servo3.WRITE_Servo_Move_Time_Wait(120,0);
+    servo6.WRITE_Servo_Move_Time_Wait(160,0);
+    usleep(3000000);
+    servo254.WRITE_Servo_Move_Start();
 
      
      // std::cout << "Depuis le main on recois pour le servo 1 " << result1 << " et le servo2 " << result2 << std::endl;

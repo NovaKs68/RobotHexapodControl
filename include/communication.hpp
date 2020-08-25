@@ -17,7 +17,7 @@ public:
 
     // Objects
     int COM(int id,uint8_t cmdValue, int cmdLen, int responseLen, uint8_t parameters[] = 0, int parametersLen = 0);
-    void WRITE(int id, uint8_t cmdValue, int cmdLen, uint8_t parameters[], int parametersLen);
+    void WRITE(int id, uint8_t cmdValue, int cmdLen, uint8_t parameters[] = 0, int parametersLen = 0);
     void READ(uint8_t result[], int nbBytes);
 
 private:

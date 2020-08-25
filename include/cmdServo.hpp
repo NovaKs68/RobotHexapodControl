@@ -11,6 +11,8 @@ public:
     Servo(int id);
     int READ_id();
     void WRITE_Servo_Angle(float angle, float time);
+    void WRITE_Servo_Move_Time_Wait(float angle, float timeWait);
+    void WRITE_Servo_Move_Start();
     int READ_Servo_Angle();
 
 private:
