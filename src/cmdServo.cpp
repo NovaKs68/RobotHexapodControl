@@ -111,3 +111,36 @@ void Servo::WRITE_Servo_Move_Start()
 
     servo.WRITE(a_id, cmdValue, cmdLen);
 }
+
+// Ca va ajuster l'angle sur servo, on peut choisir entre -30 et 30°
+// Lorsque le robot sera éteint, les ajustements ne seront pas svgrd
+void Servo::WRITE_Servo_OFFSET_ADJUST(float angle) // l'angle peut-être positif ou négatif
+{
+    Communication& servo=Communication::Instance(); // Ouverture de la communication si elle a pas déjà été ouverte
+
+    if (angle > 30.0) // Je vérifie que l'angle recu est bien entre -30 à 30 degrés
+        angle = 30.0;
+    else if (angle < -30.0)
+        angle = -30.0;
+    signed char valueAngleF = angle / 0.24; // Je transforme l'angle en valeur de -125 à 125
+    // Pas encore teste
+    int parametersLen {1}; // Cette cmd a besoin de 1 paramètre
+    uint8_t parameters[parametersLen] = {(unsigned char)valueAngleF}; // Les données envoyés sont traduit en unsigned char donc obligé de le faire ici
+    uint8_t cmdValue{0x11};
+    int cmdLen{7};
+
+    servo.WRITE(a_id, cmdValue, cmdLen, parameters, parametersLen);
+}
+
+int Servo::READ_Servo_Angle()
+{
+    Communication& servo=Communication::Instance(); // Ouverture de la communication si elle a pas déjà été ouverte
+
+    uint8_t cmdValueReadPos{0x1C};
+    int cmdLenReadPos{6};
+    int responseLenReadPos{2}; // Il attend 2 réponse : position actuelle du servo lower 8 bits et higher
+    // Pas en teste
+    signed short int resultReadPos = servo.COM(a_id, cmdValueReadPos, responseLenReadPos, cmdLenReadPos); // resultReadPos est en signed short int car l'angle peut être négatif
+    float currentPos = resultReadPos * 0.24; 
+    return currentPos;
+}

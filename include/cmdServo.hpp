@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "communication.hpp"
+#include "board.hpp"
 
 class Servo {
 
@@ -13,14 +14,12 @@ public:
     void WRITE_Servo_Angle(float angle, float time);
     void WRITE_Servo_Move_Time_Wait(float angle, float timeWait);
     void WRITE_Servo_Move_Start();
+    void WRITE_Servo_OFFSET_ADJUST(float angle);
     int READ_Servo_Angle();
 
 private:
 
-    int m_device;
     int a_id;
-    float a_angle;
-    float a_time;
 };
 
 #endif

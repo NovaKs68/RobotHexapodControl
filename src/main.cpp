@@ -1,15 +1,11 @@
 // robotHexapod.cpp : Ce fichier contient la fonction 'main'.
 
 #include <iostream>
-#include "cmdServo.hpp"
-#include "communication.hpp"
+#include "leg.hpp"
 #include <fcntl.h>   // Contient O_RDWR
 #include <unistd.h>  // write(), read(), close()
 #include <termios.h> // Pour paramétrer le port dont le baud rate
 
-// Prototype de la fonction  :
-
-uint8_t checksum(uint8_t *fram, uint8_t buflen);
 
 int main()
 {
@@ -30,6 +26,19 @@ int main()
     // servo17.WRITE_Servo_Angle(140,0);
     // servo18.WRITE_Servo_Angle(180,0);
 
+
+    auto leg1{Leg(1,2,3)};
+    auto leg2{Leg(4,5,6)};
+    auto leg3{Leg(7,8,9)};
+    auto leg4{Leg(10,11,12)};
+    auto leg5{Leg(13,14,15)};
+    auto leg6{Leg(16,17,18)};
+    leg1.posDown();
+    leg2.posDown();
+    leg3.posDown();
+    leg4.posDown();
+    leg5.posDown();
+    leg6.posDown();
 
 
      // int result2 = servo2.READ_id();
@@ -81,14 +90,16 @@ int main()
 //     servo17.WRITE_Servo_Angle(80,0);
 //     servo18.WRITE_Servo_Angle(60,0);
 
-    auto servo254{Servo(254)};
-    auto servo3{Servo(3)};
-    auto servo6{Servo(6)};
+    // auto servo254{Servo(254)};
+    // auto servo4{Servo(4)};
+    // auto servo5{Servo(5)};
+    // auto servo6{Servo(6)};
 
-    servo3.WRITE_Servo_Move_Time_Wait(120,0);
-    servo6.WRITE_Servo_Move_Time_Wait(160,0);
-    usleep(3000000);
-    servo254.WRITE_Servo_Move_Start();
+    // servo4.WRITE_Servo_Move_Time_Wait(120,0);
+    // servo5.WRITE_Servo_Move_Time_Wait(120,0);
+    // servo6.WRITE_Servo_Move_Time_Wait(120,0);
+    // usleep(3000000);
+    // servo254.WRITE_Servo_Move_Start();
 
      
      // std::cout << "Depuis le main on recois pour le servo 1 " << result1 << " et le servo2 " << result2 << std::endl;
