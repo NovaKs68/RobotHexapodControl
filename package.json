@@ -1,0 +1,22 @@
+{
+  "name": "robothexapod",
+  "version": "1.0.0",
+  "description": "**Pour lancer le projet (sous vs code avec l'extension c/c++ de microsoft) :**",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NovaKs68/RobotHexapod.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NovaKs68/RobotHexapod/issues"
+  },
+  "homepage": "https://github.com/NovaKs68/RobotHexapod#readme"
+}
