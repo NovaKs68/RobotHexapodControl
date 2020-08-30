@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "cmdServo.hpp"
+#include "board.hpp" 
 
 class Leg {
 
@@ -16,7 +17,7 @@ public:
 
 protected:
 
-    int m_servoIdCoxa;
+    int m_servoIdCoxa; 
     Servo m_servoCoxa;
     int m_servoIdFemur;
     Servo m_servoFemur;

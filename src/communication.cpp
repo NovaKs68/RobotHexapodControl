@@ -1,5 +1,4 @@
 #include "communication.hpp"
-#include "cmdServo.hpp"
 
 Communication Communication::m_instance=Communication();
 int Communication::m_device = -1;

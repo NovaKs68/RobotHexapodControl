@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "cmdServo.hpp"
-#include "leg.hpp"
 
 class Board {
 

@@ -1,6 +1,7 @@
 // robotHexapod.cpp : Ce fichier contient la fonction 'main'.
 
 #include <iostream>
+#include "cmdServo.hpp"
 #include "leg.hpp"
 #include <fcntl.h>   // Contient O_RDWR
 #include <unistd.h>  // write(), read(), close()
@@ -28,7 +29,7 @@ int main()
 
 
     auto leg1{Leg(1,2,3)};
-    auto leg2{Leg(4,5,6)};
+    auto leg2{Leg(4,5,6)}; 
     auto leg3{Leg(7,8,9)};
     auto leg4{Leg(10,11,12)};
     auto leg5{Leg(13,14,15)};

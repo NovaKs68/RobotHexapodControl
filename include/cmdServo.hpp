@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "communication.hpp"
-#include "board.hpp"
 
 class Servo {
 

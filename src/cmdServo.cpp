@@ -1,5 +1,4 @@
 #include "cmdServo.hpp"
-#include "communication.hpp"
 
 Servo::Servo(int id) : a_id{id} {
     std::cout << "Initialisation d'un servo d'id " << a_id << std::endl;
