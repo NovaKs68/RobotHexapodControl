@@ -35,7 +35,7 @@ int main()
     auto leg5{Leg(13,14,15)};
     auto leg6{Leg(16,17,18)};
     leg1.posDown();
-    leg2.posDown();
+    leg2.posDown(); 
     leg3.posDown();
     leg4.posDown();
     leg5.posDown();
