@@ -35,7 +35,7 @@ int Leg::posDownWait()
 }
 
 int Leg::start()
-{
+{ 
     m_servos.WRITE_Servo_Move_Start();
     return 1;
 }
