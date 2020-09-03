@@ -3,7 +3,7 @@
 
 LeftBackLeg::LeftBackLeg(int servoIdCoxa, int servoIdFemur, int servoIdTibia) : Leg(servoIdCoxa, servoIdFemur,servoIdTibia)
 {
-
+    Board& m_boardServo=Board::Instance();
 }
 
 int LeftBackLeg::posReadyToWalkWait() 

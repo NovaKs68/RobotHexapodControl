@@ -69,14 +69,14 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
     write(m_device, cmdPacket, cmdPacketLen);
     // Ajouter par la suite l'écoute de la réponse qui va essayer de lire toutes les millisecondes
 
-    uint8_t result[cmdPacketLen + 1] = {0};
-    size_t nbBytes{(size_t)cmdPacketLen + 1};
+    uint8_t result[cmdPacketLen + responseLen] = {0};
+    size_t nbBytes{(size_t)cmdPacketLen + responseLen};
     int readBytes{-1};
     for (int i{0}; (readBytes == -1) && i < 10; i++)
     {
         readBytes = read(m_device, result, nbBytes);
         usleep(1000); // wait 1 millisec
-        std::cout << readBytes << std::endl;
+        std::cout << "Trying " << readBytes << std::endl;
     }
 
     // readBytes = read(m_device, result, nbBytes);

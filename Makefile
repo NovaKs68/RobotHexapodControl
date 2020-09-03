@@ -1,5 +1,6 @@
 CXX       := g++
 CXX_FLAGS := -std=c++17 -ggdb
+CXX_FLAG_END := -pthread
 
 BIN     := bin
 SRC     := src
@@ -13,6 +14,6 @@ all: $(BIN)/$(EXECUTABLE)
 
 run: clean all; clear; ./$(BIN)/$(EXECUTABLE)
 
-$(BIN)/$(EXECUTABLE): $(SRC)/*.cpp; $(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ $(LIBRARIES)
+$(BIN)/$(EXECUTABLE): $(SRC)/*.cpp; $(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ $(LIBRARIES) $(CXX_FLAG_END)
 
 clean: -rm $(BIN)/*

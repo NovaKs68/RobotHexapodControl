@@ -3,16 +3,18 @@
 #include <iostream>
 #include "cmdServo.hpp"
 #include "leg.hpp"
+#include "board.hpp"
 #include <fcntl.h>   // Contient O_RDWR
 #include <unistd.h>  // write(), read(), close()
 #include <termios.h> // Pour paramétrer le port dont le baud rate
+#include <thread> // A mettre dans le body par la suite
 
 
 int main()
 {
 
     std::cout << "Debut du programme !" << std::endl;
-
+    
     //-------------------------
     //------ TEST OBJETS ------
     //-------------------------

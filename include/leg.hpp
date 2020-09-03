@@ -13,7 +13,7 @@ public:
     int start(); // Devra retourner 1 quand il aura fini
     int currentPos(); // Devra retourner les positions du coxa, femur, tibia
     int posDownWait(); // Devra retourer 1 quand il sera prêt
-    int posDown(); // Devra retourner 1 quand il aura fini
+    int posDown(); // Retourne 1 quand l'action est fini et 0 lorsqu'il y a eu un problème et que le mouvement n'a pas pu être fait
 
 protected:
 
