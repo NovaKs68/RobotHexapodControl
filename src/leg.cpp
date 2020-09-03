@@ -23,7 +23,7 @@ int Leg::posDown()
     }
 
     std::cout << "WARNING : Le mouvement de la patte avec le servo tibia d'id " << m_servoIdTibia << std::endl;
-    return 0; // A changer quand il y aura la verif que le mouvement soit bien fait en place
+    return 0;
 }
 
 int Leg::posDownWait()
