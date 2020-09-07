@@ -8,7 +8,9 @@ class RightBackLeg : public Leg {
 
 public:
 
-    RightBackLeg(int servoIdCoxa, int servoIdFemur, int servoIdTibia);
+    RightBackLeg();
+    int posReadyToWalkWait();
+    int posReadyToWalk();
 
 private:
 

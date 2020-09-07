@@ -94,7 +94,7 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
         }
     } else 
     {
-        std::cout << "Erreur aucun packet n'a été reçus en retour !" << std::endl;
+        std::cout << "Erreur aucun packet n'a été reçus en retour ! id : " << id << std::endl;
     }
     return -1;
 }

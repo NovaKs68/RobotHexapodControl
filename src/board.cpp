@@ -3,33 +3,6 @@
 Board Board::m_instance=Board();
 
 // La mise à jour des servos est faite dans une methode privée pour être appelé dans le thread pour avoir accès aux attributs de la classe
-void MAJServos(std::array<int, 18> m_boardServosAngle, std::array<bool, 18> m_boardServosAction)
-{
-    while(1)
-    {   
-        for(int i=1; i<=18; i++)
-        {
-            Servo servo(i);
-            int currentAngle = servo.READ_Servo_Angle();
-
-            // La position est testé avec une marge d'erreur de 2 degrés
-            if ((m_boardServosAngle[i] - 1) <= currentAngle & (m_boardServosAngle[i] + 1) >= currentAngle)
-            {
-                m_boardServosAction[i] = false; // Alors ca veut dire qu'il ne bouge pas
-            } else 
-            {
-                m_boardServosAction[i] = true; // Alors ca veut dire qu'il est en mouvement
-            }
-            m_boardServosAngle[i] = currentAngle;
-            std::cout << "Servo " << i << " testé !" << std::endl;
-            std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
-            std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
-
-            usleep(80000); // wait 8 millisec
-        }
-       
-    }
-}
 
 Board::Board()
 {
@@ -42,13 +15,15 @@ Board::Board()
         m_boardServosAction[i] = true; // En mouvement par défaut
         m_boardServosAngle[i] = 0;
     }
+    m_boardActive = true;
     int a =2;
     while(a)
     {   
         for(int i=1; i<=18; i++)
         {
-            Servo servo(i);
+            Servo servo(i);     
             int currentAngle = servo.READ_Servo_Angle();
+            int test = servo.READ_id();
 
             // La position est testé avec une marge d'erreur de 2 degrés
             if ((m_boardServosAngle[i] - 1) <= currentAngle & (m_boardServosAngle[i] + 1) >= currentAngle)
@@ -59,17 +34,17 @@ Board::Board()
                 m_boardServosAction[i] = true; // Alors ca veut dire qu'il est en mouvement
             }
             m_boardServosAngle[i] = currentAngle;
-            std::cout << "Servo " << i << " testé !" << std::endl;
-            std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
-            std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
+            // std::cout << "Servo " << i << " testé !" << std::endl;
+             std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
+            // std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
 
-            usleep(80000); // wait 8 millisec
+            usleep(8000); // wait 8 millisec
         }
 
         a--;
     }
 
-    std::thread t(MAJServos,m_boardServosAngle,m_boardServosAction);
+    std::thread t(&Board::MAJServos, this);
     t.detach(); // detach permet d'exectuer ce thread à coté du thread principal
 }
 
@@ -85,4 +60,51 @@ Board& Board::Instance()
 bool Board::getAction(int numeroServo)
 {
     return m_boardServosAction[(numeroServo -1)];
+}
+
+bool Board::getBoardActive()
+{
+    return m_boardActive;
+}
+
+void Board::setBoardActive(bool activeOrNot)
+{
+    m_boardActive = activeOrNot;
+}
+
+void Board::MAJServos()
+{
+    while(1)
+    {
+        if(m_boardActive)
+        {
+            for(int i=1; i<=18; i++)
+            {
+                Servo servo(i);
+                int currentAngle = servo.READ_Servo_Angle();
+
+                // La position est testé avec une marge d'erreur de 2 degrés
+                if ((m_boardServosAngle[i] - 1) <= currentAngle & (m_boardServosAngle[i] + 1) >= currentAngle)
+                {
+                    m_boardServosAction[i] = false; // Alors ca veut dire qu'il ne bouge pas
+                } else 
+                {
+                    m_boardServosAction[i] = true; // Alors ca veut dire qu'il est en mouvement
+                }
+                m_boardServosAngle[i] = currentAngle;
+                // std::cout << "Servo " << i << " testé !" << std::endl;
+                // std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
+                // std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
+
+                usleep(8000); // wait 8 millisec 
+            }
+        } else // Si board est désactivé c'est que des servos sont mis en mouvement, je les mets donc tous en mvmt, par la suite il faudra mettre seulement celui en mouvement
+        {
+            for(int i=1; i<=18; i++)
+            {
+                m_boardServosAction[i] = true; // Alors ca veut dire qu'il est en mouvement
+            }
+        }
+       usleep(1000); // Retenter toutes les millisec
+    }
 }
