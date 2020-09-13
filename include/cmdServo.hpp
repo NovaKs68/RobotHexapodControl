@@ -2,6 +2,7 @@
 #define DEF_CMDSERVO
 
 #include <iostream>
+#include <cstdint>
 #include "communication.hpp"
 
 class Servo {
@@ -13,7 +14,7 @@ public:
     void WRITE_Servo_Angle(float angle, float time);
     void WRITE_Servo_Move_Time_Wait(float angle, float timeWait);
     void WRITE_Servo_Move_Start();
-    void WRITE_Servo_OFFSET_ADJUST(float angle);
+    void WRITE_Servo_Offset_Adjust(float angle);
     int READ_Servo_Angle();
 
 private:

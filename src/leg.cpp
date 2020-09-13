@@ -9,11 +9,11 @@ Leg::Leg(int servoIdCoxa, int servoIdFemur, int servoIdTibia) : m_servoIdCoxa(se
 int Leg::posDown()
 {
     Board& board=Board::Instance();
-    board.setBoardActive(false); // Désactive le board
     for(int i=1; i<=500; i++) // Recommencer 500 fois au final ca donnera 0.5 sec d'attente. Ca équivaut à la durée max d'execution d'un ordre pour le servo (0.48 sec)
     {
         if (!board.getAction(m_servoIdCoxa) && !board.getAction(m_servoIdFemur) && !board.getAction(m_servoIdTibia))
         {
+            board.setBoardActive(false); // Désactive le board
             m_servoCoxa.WRITE_Servo_Angle(120,0);
             m_servoFemur.WRITE_Servo_Angle(40,0);
             m_servoTibia.WRITE_Servo_Angle(60,0);

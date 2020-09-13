@@ -35,10 +35,10 @@ Board::Board()
             }
             m_boardServosAngle[i] = currentAngle;
             // std::cout << "Servo " << i << " testé !" << std::endl;
-             std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
+            // std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
             // std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
 
-            usleep(8000); // wait 8 millisec
+            usleep(1000); // wait 8 millisec
         }
 
         a--;
@@ -93,10 +93,10 @@ void Board::MAJServos()
                 }
                 m_boardServosAngle[i] = currentAngle;
                 // std::cout << "Servo " << i << " testé !" << std::endl;
-                // std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
-                // std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
+                std::cout << "Avec comme position : " << m_boardServosAngle[i] << std::endl;
+                std::cout << "Si elle est en mouvement ? " << m_boardServosAction[i] << std::endl;
 
-                usleep(8000); // wait 8 millisec 
+                usleep(1000); // wait 8 millisec 
             }
         } else // Si board est désactivé c'est que des servos sont mis en mouvement, je les mets donc tous en mvmt, par la suite il faudra mettre seulement celui en mouvement
         {

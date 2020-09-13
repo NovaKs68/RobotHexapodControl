@@ -69,7 +69,8 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
     write(m_device, cmdPacket, cmdPacketLen);
     // Ajouter par la suite l'écoute de la réponse qui va essayer de lire toutes les millisecondes
 
-    uint8_t result[cmdPacketLen + responseLen] = {0};
+    uint8_t result[cmdPacketLen + responseLen];
+    result[0] = 0;
     size_t nbBytes{(size_t)cmdPacketLen + responseLen};
     int readBytes{-1};
     for (int i{0}; (readBytes == -1) && i < 10; i++)

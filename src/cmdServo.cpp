@@ -39,7 +39,11 @@ void Servo::WRITE_Servo_Angle(float angle, float time) { // doit déplacer le se
     unsigned char msbTime = (uint8_t)((valueTimeUs & (uint16_t)0xFF00) >> 8); // Poids fort
 
     int parametersLen {4}; // Cette cmd a besoin de 4 paramètres
-    uint8_t parameters[parametersLen] = {lsbAngle,msbAngle,lsbTime,msbTime};
+    uint8_t parameters[parametersLen];
+    parameters[0] = lsbAngle;
+    parameters[1] = msbAngle;
+    parameters[2] = lsbTime;
+    parameters[3] = msbTime;
     uint8_t cmdValue{0x01};
     int cmdLen{10};
 
@@ -93,7 +97,11 @@ void Servo::WRITE_Servo_Move_Time_Wait(float angle, float timeWait) // L'angle e
     unsigned char msbTime = (uint8_t)((valueTimeUs & (uint16_t)0xFF00) >> 8); // Poids fort
 
     int parametersLen {4}; // Cette cmd a besoin de 4 paramètres
-    uint8_t parameters[parametersLen] = {lsbAngle,msbAngle,lsbTime,msbTime};
+    uint8_t parameters[parametersLen];
+    parameters[0] = lsbAngle;
+    parameters[1] = msbAngle;
+    parameters[2] = lsbTime;
+    parameters[3] = msbTime;
     uint8_t cmdValue{0x07};
     int cmdLen{10};
 
@@ -113,7 +121,7 @@ void Servo::WRITE_Servo_Move_Start()
 
 // Ca va ajuster l'angle sur servo, on peut choisir entre -30 et 30°
 // Lorsque le robot sera éteint, les ajustements ne seront pas svgrd
-void Servo::WRITE_Servo_OFFSET_ADJUST(float angle) // l'angle peut-être positif ou négatif
+void Servo::WRITE_Servo_Offset_Adjust(float angle) // l'angle peut-être positif ou négatif
 {
     Communication& servo=Communication::Instance(); // Ouverture de la communication si elle a pas déjà été ouverte
 
@@ -124,7 +132,8 @@ void Servo::WRITE_Servo_OFFSET_ADJUST(float angle) // l'angle peut-être positif
     signed char valueAngleF = angle / 0.24; // Je transforme l'angle en valeur de -125 à 125
     // Pas encore teste
     int parametersLen {1}; // Cette cmd a besoin de 1 paramètre
-    uint8_t parameters[parametersLen] = {(unsigned char)valueAngleF}; // Les données envoyés sont traduit en unsigned char donc obligé de le faire ici
+    uint8_t parameters[parametersLen]; // Les données envoyés sont traduit en unsigned char donc obligé de le faire ici
+    parameters[0] = (unsigned char)valueAngleF;
     uint8_t cmdValue{0x11};
     int cmdLen{7};
 
