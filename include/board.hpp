@@ -4,6 +4,7 @@
 #include <iostream>
 #include <thread>
 #include <array>
+#include <vector>
 #include "cmdServo.hpp"
 #include "leg.hpp"
 
@@ -20,6 +21,8 @@ public:
     // Va retourner si oui ou non la com est libre
     bool getBoardActive();
     void setBoardActive(bool activeOrNot);
+
+    void setServoAction(int servoId, int angleTarget);
 
     void MAJServos();
 

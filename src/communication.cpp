@@ -77,7 +77,6 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
     {
         readBytes = read(m_device, result, nbBytes);
         usleep(1000); // wait 1 millisec
-        std::cout << "Trying " << readBytes << std::endl;
     }
 
     // readBytes = read(m_device, result, nbBytes);
