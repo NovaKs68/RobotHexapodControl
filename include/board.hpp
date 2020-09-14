@@ -4,7 +4,6 @@
 #include <iostream>
 #include <thread>
 #include <array>
-#include <vector>
 #include "cmdServo.hpp"
 #include "leg.hpp"
 

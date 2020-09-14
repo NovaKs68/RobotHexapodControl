@@ -30,7 +30,7 @@ int RightFrontLeg::posReadyToWalk()
         
         usleep(3000);
     }
-    board.setBoardActive(true); // Réactive le board
+
     std::cout << "WARNING : Le mouvement de la patte RightFrontLeg (posReadyToWalk) n'a pas pu s'effectuer !" << std::endl;
     
 

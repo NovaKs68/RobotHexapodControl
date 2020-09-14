@@ -32,17 +32,24 @@ int main()
     auto leg6{LeftFrontLeg()};
 
 
-    leg1.posDown();
+    //leg1.posDown();
+    // leg1.posReadyToWalk();
+    // leg1.posDown();
     leg1.posReadyToWalk();
-    leg1.posDown();
-    leg1.posReadyToWalk();
+    usleep(8000);
     leg2.posReadyToWalk();
+    usleep(8000);
+    leg3.posDown();
     leg3.posReadyToWalk();
     leg3.posDown();
     leg3.posReadyToWalk();
+    usleep(8000);
     leg4.posReadyToWalk();
+    usleep(8000);
     leg5.posReadyToWalk();
+    usleep(8000);
     leg6.posReadyToWalk();
+    usleep(10000000);
 
 
     //-------------------------

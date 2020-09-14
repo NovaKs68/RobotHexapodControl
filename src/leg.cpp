@@ -9,7 +9,7 @@ Leg::Leg(int servoIdCoxa, int servoIdFemur, int servoIdTibia) : m_servoIdCoxa(se
 int Leg::posDown()
 {
     Board& board=Board::Instance();
-    for(int i=1; i<=1000; i++) // Recommencer 500 fois au final ca donnera 0.5 sec d'attente. Ca équivaut à la durée max d'execution d'un ordre pour le servo (0.48 sec)
+    for(int i=1; i<=1000; i++) // Recommencer 1000 fois au final ca donnera 1sec sec d'attente. Ca équivaut à deux fois la durée max d'execution d'un ordre pour le servo (0.48 sec). Ca va permettre d'effectuer cette ordre meme si un autre à été envoyé.
     {
         if (!board.getAction(m_servoIdCoxa) && !board.getAction(m_servoIdFemur) && !board.getAction(m_servoIdTibia))
         {
