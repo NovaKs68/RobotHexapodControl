@@ -20,3 +20,43 @@ Les servomoteurs fonctionnent en big endian.
 
 A noter que le SERVO_OR_MOTOR_MODE_READ ne pourra pas fonctionner car quand il y a deux réponses, le programme transformes le lower et le higher bits en octet. 
 Il n'y aura pas besoin de motor mode dans tous les cas.
+
+### Fonctionnement général : 
+
+###### Main.cpp : 
+
+Représente le client. C'est à dire que c'est lui qui va choisir le comportement du robot.
+Exemple : Avancer 3 mètres puis tourner à droite
+
+###### Body :
+
+C'est le corps du robot. C'est lui qui va suivant la demande du main, coordonner les pattes afin d'arriver à ses fins.
+
+###### Leg.cpp : 
+
+C'est le parent de chaque patte. Il va contenir toutes les commandes communes aux mouvements des pattes.
+Chaque patte est un regroupement de 3 servos. Les pattes ont pour l'instant des mouvements pré-enregistrés.
+Exemple : Patte1, position couchée
+
+###### CmdServo.cpp :
+
+C'est l'objet Servo. Ca va permettre de les contrôler séparément. Chaque méthode est une commande différente.
+Celui-ci forme les tram si leg demande l'id du servo, alors il va envoyer à communication.cpp l'id du servo, 
+le numéro de la commande et les paramètres si il y en a.
+(calculer poids fort et poids faible, convertir les degrés en 0/1000 et vérifier ces données (qu'elles ne dépassent pas les limites et par la suite les 
+limites d'angles)).
+Exemple : Servo 8, donne-moi son id
+
+###### Board.cpp :
+
+C'est un tableau qui récapitule l'état de tous les servos en temps réel.
+Ca va permettre de savoir quand un servo a atteint sa position visée. Et donc quand il sera prêt à recevoir de nouveaux ordres.
+Si on envoie deux ordres au même servo, sans le board, le deuxième ordre écrasera le premier.
+Il va utiliser CmdServo pour faire des requêtes aux servos afin de connaître leur position.
+
+###### Communication.cpp :
+
+Lui va recevoir les infos de CmdServo.cpp, il va assembler la commande packet avec l'id, le numéro de la commande, les paramètres s'il y en a et il ajoutera le checksum.
+Il va soit envoyer en WRITE soit en READ ou soit en COM (il envoie le packet et lit la réponse).
+Ce sera donc également lui qui va traiter les erreurs de COM.
+Il renvoie true ou false suivant son bon déroulement
