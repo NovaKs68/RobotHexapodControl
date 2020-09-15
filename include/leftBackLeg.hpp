@@ -8,7 +8,7 @@ class LeftBackLeg : public Leg {
 
 public:
 
-    LeftBackLeg(int servoIdCoxa = 10, int servoIdFemur = 11, int servoIdTibia = 12);
+    LeftBackLeg();
     int posReadyToWalkWait();
     int posReadyToWalk();
  

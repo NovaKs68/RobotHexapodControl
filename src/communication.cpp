@@ -69,14 +69,14 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
     write(m_device, cmdPacket, cmdPacketLen);
     // Ajouter par la suite l'écoute de la réponse qui va essayer de lire toutes les millisecondes
 
-    uint8_t result[cmdPacketLen + responseLen] = {0};
+    uint8_t result[cmdPacketLen + responseLen];
+    result[0] = 0;
     size_t nbBytes{(size_t)cmdPacketLen + responseLen};
     int readBytes{-1};
     for (int i{0}; (readBytes == -1) && i < 10; i++)
     {
         readBytes = read(m_device, result, nbBytes);
         usleep(1000); // wait 1 millisec
-        std::cout << "Trying " << readBytes << std::endl;
     }
 
     // readBytes = read(m_device, result, nbBytes);
@@ -94,14 +94,14 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
         }
     } else 
     {
-        std::cout << "Erreur aucun packet n'a été reçus en retour !" << std::endl;
+        std::cout << "Erreur aucun packet n'a été reçus en retour ! id : " << id << std::endl;
     }
     return -1;
 }
 
 void Communication::WRITE(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)
 {
-    std::cout << "write " << cmdValue << std::endl;
+    std::cout << "write " << id << std::endl;
     uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen); // write ne fonctionne plus
     write(m_device, cmdPacket, cmdPacketLen);
 }
