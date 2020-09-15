@@ -17,9 +17,9 @@ f5 : debugging + résultat du programme
 **Attention il faut être sous linux pour que le code fonctionne**
 
 A noter que :
--Le modèle du servo est lx-224.
--Le SERVO_OR_MOTOR_MODE_READ ne pourra pas fonctionner car quand il y a deux réponses, le programme transformes le lower et le higher bits en octet. 
+- Le modèle du servo est lx-224.
+- Le SERVO_OR_MOTOR_MODE_READ ne pourra pas fonctionner car quand il y a deux réponses, le programme transformes le lower et le higher bits en octet. 
 Il n'y aura pas besoin de motor mode dans tous les cas.
--Le servo va à 0.12 sec/60 degrés. Il prendra donc maximum 0.48 sec pour effectuer le plus grand mouvement possible (0 à 240 deg)
--Les servomoteurs fonctionnent en big endian.
--Les servos prennent en moyenne 5500 microsec à répondre (jamais plus de 6 millisec)
+- Le servo va à 0.12 sec/60 degrés. Il prendra donc maximum 0.48 sec pour effectuer le plus grand mouvement possible (0 à 240 deg)
+- Les servomoteurs fonctionnent en big endian.
+- Les servos prennent en moyenne 5500 microsec à répondre (jamais plus de 6 millisec)
