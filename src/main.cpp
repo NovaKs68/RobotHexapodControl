@@ -10,10 +10,13 @@
 #include "rightFrontLeg.hpp"
 #include "rightMiddleLeg.hpp"
 #include "board.hpp"
+#include <pthread.h>
 #include <fcntl.h>   // Contient O_RDWR
 #include <unistd.h>  // write(), read(), close()
 #include <termios.h> // Pour paramétrer le port dont le baud rate
 #include <thread> // A mettre dans le body par la suite
+// #include <chrono>
+
 
 
 int main()
@@ -31,23 +34,39 @@ int main()
     auto leg5{LeftMiddleLeg()};
     auto leg6{LeftFrontLeg()};
 
+    usleep(1000000);
 
-    //leg1.posDown();
-    // leg1.posReadyToWalk();
-    // leg1.posDown();
+
+
+    leg1.posDown();
+    leg2.posDown();
+    leg3.posDown();
+    leg4.posDown();
+    leg5.posDown();
+    leg6.posDown();
+    usleep(1000000);
+
     leg1.posReadyToWalk();
-    usleep(8000);
     leg2.posReadyToWalk();
-    usleep(8000);
-    leg3.posDown();
     leg3.posReadyToWalk();
-    leg3.posDown();
-    leg3.posReadyToWalk();
-    usleep(8000);
     leg4.posReadyToWalk();
-    usleep(8000);
     leg5.posReadyToWalk();
-    usleep(8000);
+    leg6.posReadyToWalk();
+    usleep(300000);
+
+    leg1.posDown();
+    leg2.posDown();
+    leg3.posDown();
+    leg4.posDown();
+    leg5.posDown();
+    leg6.posDown();
+    usleep(300000);
+
+    leg1.posReadyToWalk();
+    leg2.posReadyToWalk();
+    leg3.posReadyToWalk();
+    leg4.posReadyToWalk();
+    leg5.posReadyToWalk();
     leg6.posReadyToWalk();
     usleep(10000000);
 
@@ -114,27 +133,40 @@ int main()
     // auto servo18{Servo(18)};
     // auto servo254{Servo(254)};
 
-    // int a = servo1.READ_id();
-    // int b = servo2.READ_id();
-    // int c = servo3.READ_id();
-    // int d = servo4.READ_id();
-    // int e = servo5.READ_id();
-    // int f = servo6.READ_id();
-    // int g = servo7.READ_id();
-    // int h = servo8.READ_id();
-    // int i = servo9.READ_id();
-    // int j = servo10.READ_id();
-    // int k = servo11.READ_id();
-    // int l = servo12.READ_id();
-    // int m = servo13.READ_id();
-    // int n = servo14.READ_id();
-    // int o = servo15.READ_id();
-    // int p = servo16.READ_id();
-    // int q = servo17.READ_id();
-    // int r = servo18.READ_id();
+    // Pour connaitre le temps que prends un COM d'un servo :
+
+    // std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+    // int a = servo1.READ_Servo_Angle();
+    // std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+    // int elapsed_seconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    // std::cout << "Result: " << a << ", elapsed time: " << elapsed_seconds << "microsec" << std::endl;
+
+
+    // while(1)
+    // {
+
+    
+    // int a = servo1.READ_Servo_Angle();
+    // int b = servo2.READ_Servo_Angle();
+    // int c = servo3.READ_Servo_Angle();
+    // int d = servo4.READ_Servo_Angle();
+    // int e = servo5.READ_Servo_Angle();
+    // int f = servo6.READ_Servo_Angle();
+    // int g = servo7.READ_Servo_Angle();
+    // int h = servo8.READ_Servo_Angle();
+    // int i = servo9.READ_Servo_Angle();
+    // int j = servo10.READ_Servo_Angle();
+    // int k = servo11.READ_Servo_Angle();
+    // int l = servo12.READ_Servo_Angle();
+    // int m = servo13.READ_Servo_Angle();
+    // int n = servo14.READ_Servo_Angle();
+    // int o = servo15.READ_Servo_Angle();
+    // int p = servo16.READ_Servo_Angle();
+    // int q = servo17.READ_Servo_Angle();
+    // int r = servo18.READ_Servo_Angle();
 
     // std::cout << a << " " << b << " " << c << " " << d << " " << e << " " << f << " " << g << " " << h << " " << i << " " << j << " " << k << " " << l << " " << m << " " << n << " " << o << " " << p << " " << q << " " << r << std::endl;
-   
+    // }
     // servo1.WRITE_Servo_Angle(120,0);
     // servo2.WRITE_Servo_Angle(80,0);
     // servo3.WRITE_Servo_Angle(60,0);
@@ -153,6 +185,8 @@ int main()
     // servo16.WRITE_Servo_Angle(120,0);
     // servo17.WRITE_Servo_Angle(80,0);
     // servo18.WRITE_Servo_Angle(60,0);
+
+    // usleep(800000);
 
     // servo1.WRITE_Servo_Angle(120,0);
     // servo2.WRITE_Servo_Angle(100,0);

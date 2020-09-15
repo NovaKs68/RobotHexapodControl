@@ -4,24 +4,30 @@
 RightBackLeg::RightBackLeg() : Leg(7, 8, 9)
 {
     Board& m_boardServo=Board::Instance();
+    m_servoFemur.WRITE_Servo_Offset_Adjust(-5);
 }
 
 int RightBackLeg::posReadyToWalk() 
 {
     Board& board=Board::Instance();
-    for(int i=1; i<=1000; i++)
+    for(int i=1; i<=2000; i++)
     {
         if (!board.getAction(m_servoIdCoxa) && !board.getAction(m_servoIdFemur) && !board.getAction(m_servoIdTibia))
         {
-            // Déclarer les servos en mouvement
-            board.setServoAction(m_servoIdCoxa, 120);
-            board.setServoAction(m_servoIdFemur, 120);
-            board.setServoAction(m_servoIdTibia, 120);
-
             board.setBoardActive(false); // Désactive le board
-            m_servoCoxa.WRITE_Servo_Angle(120,2);
-            m_servoFemur.WRITE_Servo_Angle(120,1);
-            m_servoTibia.WRITE_Servo_Angle(120,2);
+            
+            int posServoCoxa {120};
+            int posServoFemur {70};
+            int posServoTibia {40};
+
+            // Déclarer les servos en mouvement
+            board.setServoAction(m_servoIdCoxa, posServoCoxa);
+            board.setServoAction(m_servoIdFemur, posServoFemur);
+            board.setServoAction(m_servoIdTibia, posServoTibia);
+
+            m_servoCoxa.WRITE_Servo_Angle(posServoCoxa,0);
+            m_servoTibia.WRITE_Servo_Angle(posServoTibia,0);
+            m_servoFemur.WRITE_Servo_Angle(posServoFemur,2);
 
             board.setBoardActive(true); // Réactive le board
 

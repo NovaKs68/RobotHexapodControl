@@ -9,22 +9,26 @@ Leg::Leg(int servoIdCoxa, int servoIdFemur, int servoIdTibia) : m_servoIdCoxa(se
 int Leg::posDown()
 {
     Board& board=Board::Instance();
-    for(int i=1; i<=1000; i++) // Recommencer 1000 fois au final ca donnera 1sec sec d'attente. Ca équivaut à deux fois la durée max d'execution d'un ordre pour le servo (0.48 sec). Ca va permettre d'effectuer cette ordre meme si un autre à été envoyé.
+    for(int i=1; i<=2000; i++) // Recommencer 1000 fois au final ca donnera 1sec sec d'attente. Ca équivaut à deux fois la durée max d'execution d'un ordre pour le servo (0.48 sec). Ca va permettre d'effectuer cette ordre meme si un autre à été envoyé.
     {
         if (!board.getAction(m_servoIdCoxa) && !board.getAction(m_servoIdFemur) && !board.getAction(m_servoIdTibia))
         {
-            // Déclarer les servos en mouvement
-            board.setServoAction(m_servoIdCoxa, 120);
-            board.setServoAction(m_servoIdFemur, 40);
-            board.setServoAction(m_servoIdTibia, 60);
+            if(board.getBoardActive())
+            {
+                board.setBoardActive(false); // Désactive le board afin de ne pas faire des requetes en meme temps que lui
+                
+                // Déclarer les servos en mouvement
+                board.setServoAction(m_servoIdCoxa, 120);
+                board.setServoAction(m_servoIdFemur, 40);
+                board.setServoAction(m_servoIdTibia, 60);
 
-            board.setBoardActive(false); // Désactive le board afin de ne pas faire des requetes en meme temps que lui
-            m_servoCoxa.WRITE_Servo_Angle(120,0);
-            m_servoFemur.WRITE_Servo_Angle(40,0);
-            m_servoTibia.WRITE_Servo_Angle(60,0);
+                m_servoFemur.WRITE_Servo_Angle(40,0.5);
+                m_servoCoxa.WRITE_Servo_Angle(120,1);
+                m_servoTibia.WRITE_Servo_Angle(60,1);
 
-            board.setBoardActive(true); // Réactive le board
-            return 1;
+                board.setBoardActive(true); // Réactive le board
+                return 1;
+            }
         }
         
         usleep(3000); // Retenter toutes les 3 millisec

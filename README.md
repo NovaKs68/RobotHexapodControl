@@ -22,3 +22,4 @@ A noter que :
 Il n'y aura pas besoin de motor mode dans tous les cas.
 -Le servo va à 0.12 sec/60 degrés. Il prendra donc maximum 0.48 sec pour effectuer le plus grand mouvement possible (0 à 240 deg)
 -Les servomoteurs fonctionnent en big endian.
+-Les servos prennent en moyenne 5500 microsec à répondre (jamais plus de 6 millisec)

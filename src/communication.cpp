@@ -101,7 +101,7 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
 
 void Communication::WRITE(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t parameters[], int parametersLen)
 {
-    std::cout << "write " << cmdValue << std::endl;
+    std::cout << "write " << id << std::endl;
     uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen); // write ne fonctionne plus
     write(m_device, cmdPacket, cmdPacketLen);
 }

@@ -38,7 +38,7 @@ private:
     int m_device;
     std::array<int, 18> m_boardServosAngle; // Va comporter les currents angles des servos
     std::array<bool, 18> m_boardServosAction; // Va comporter true si il est en action et false si il est désactivé
-    bool m_boardActive;
+    bool m_boardActive; // True si active et false si desactive
 };
 
 #endif

@@ -104,20 +104,18 @@ void Board::MAJServos()
                 {   
                     Servo servo(servoIdAActualiser[i]);
                     int currentAngle = servo.READ_Servo_Angle();
-                    // Vérifie si la position de l'ordre est atteint. La position est testé avec une marge d'erreur de 4 degrés
-                    if (currentAngle >= (m_boardServosAngle[servoIdAActualiser[i] - 1] - 2) && currentAngle <= (m_boardServosAngle[servoIdAActualiser[i] - 1] + 2)) // On compare ici m'angle futur à l'actuel
+                    // Vérifie si la position de l'ordre est atteint. La position est testé avec une marge d'erreur de 6 degrés
+                    if (currentAngle >= (m_boardServosAngle[servoIdAActualiser[i] - 1] - 3) && currentAngle <= (m_boardServosAngle[servoIdAActualiser[i] - 1] + 3)) // On compare ici m'angle futur à l'actuel
                     {
-                        std::cout << "Servo validé " << std::endl;
+                        // std::cout << "Servo validé " << std::endl;
                         m_boardServosAction[servoIdAActualiser[i] - 1] = false; // Alors ca veut dire qu'il ne bouge pas
                     } else 
                     {
-                        std::cout << "Servo refusé " << std::endl;
+                        // std::cout << "Servo refusé " << std::endl;
                         m_boardServosAction[servoIdAActualiser[i] - 1] = true; // Alors ca veut dire qu'il est en mouvement
                     }
-                    // std::cout << "Avec comme position : " << currentAngle << " et comme objectif : " << m_boardServosAngle[servoIdAActualiser[i] - 1] << std::endl;
+                    std::cout << "Avec comme position : " << currentAngle << " et comme objectif : " << m_boardServosAngle[servoIdAActualiser[i] - 1] << std::endl;
                     // std::cout << "Si elle est en mouvement ? " << m_boardServosAction[servoIdAActualiser[i] - 1] << std::endl;
-
-                    usleep(1000); // wait 8 millisec 
                 }
             }
         } else // Si board est désactivé c'est que des servos sont mis en mouvement, je les mets donc tous en mvmt, par la suite il faudra mettre seulement celui en mouvement
