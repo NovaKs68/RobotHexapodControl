@@ -21,6 +21,9 @@ public:
     bool getBoardActive();
     void setBoardActive(bool activeOrNot);
 
+    // Va retourner true quand le servo aura fini son mouvement
+    bool getBoardActionServoFinished(int servoId);
+
     void setServoAction(int servoId, int angleTarget);
 
     void MAJServos();

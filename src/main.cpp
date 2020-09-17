@@ -2,13 +2,7 @@
 
 #include <iostream>
 #include "cmdServo.hpp"
-#include "leg.hpp"
-#include "leftBackLeg.hpp"
-#include "leftFrontLeg.hpp"
-#include "leftMiddleLeg.hpp"
-#include "rightBackLeg.hpp"
-#include "rightFrontLeg.hpp"
-#include "rightMiddleLeg.hpp"
+#include "body.hpp"
 #include "board.hpp"
 #include <pthread.h>
 #include <fcntl.h>   // Contient O_RDWR
@@ -22,53 +16,60 @@
 int main()
 {
     std::cout << "Debut du programme !" << std::endl;
+    Body& body=Body::Instance();
+
+        body.bodyPosDown();
+        body.bodyPosReadyToWalk();
+        usleep(80000);
     
+    
+
     //-------------------------
     //------- TEST BODY -------
     //-------------------------
 
-    auto leg1{RightFrontLeg()};
-    auto leg2{RightMiddleLeg()};
-    auto leg3{RightBackLeg()};
-    auto leg4{LeftBackLeg()};
-    auto leg5{LeftMiddleLeg()};
-    auto leg6{LeftFrontLeg()};
+    // auto leg1{RightFrontLeg()};
+    // auto leg2{RightMiddleLeg()};
+    // auto leg3{RightBackLeg()};
+    // auto leg4{LeftBackLeg()};
+    // auto leg5{LeftMiddleLeg()};
+    // auto leg6{LeftFrontLeg()};
 
-    usleep(1000000);
+    
 
 
 
-    leg1.posDown();
-    leg2.posDown();
-    leg3.posDown();
-    leg4.posDown();
-    leg5.posDown();
-    leg6.posDown();
-    usleep(1000000);
+    // leg1.posDown();
+    // leg2.posDown();
+    // leg3.posDown();
+    // leg4.posDown();
+    // leg5.posDown();
+    // leg6.posDown();
+    // usleep(1000000);
 
-    leg1.posReadyToWalk();
-    leg2.posReadyToWalk();
-    leg3.posReadyToWalk();
-    leg4.posReadyToWalk();
-    leg5.posReadyToWalk();
-    leg6.posReadyToWalk();
-    usleep(300000);
+    // leg1.posReadyToWalk();
+    // leg2.posReadyToWalk();
+    // leg3.posReadyToWalk();
+    // leg4.posReadyToWalk();
+    // leg5.posReadyToWalk();
+    // leg6.posReadyToWalk();
+    // usleep(300000);
 
-    leg1.posDown();
-    leg2.posDown();
-    leg3.posDown();
-    leg4.posDown();
-    leg5.posDown();
-    leg6.posDown();
-    usleep(300000);
+    // leg1.posDown();
+    // leg2.posDown();
+    // leg3.posDown();
+    // leg4.posDown();
+    // leg5.posDown();
+    // leg6.posDown();
+    // usleep(300000);
 
-    leg1.posReadyToWalk();
-    leg2.posReadyToWalk();
-    leg3.posReadyToWalk();
-    leg4.posReadyToWalk();
-    leg5.posReadyToWalk();
-    leg6.posReadyToWalk();
-    usleep(10000000);
+    // leg1.posReadyToWalk();
+    // leg2.posReadyToWalk();
+    // leg3.posReadyToWalk();
+    // leg4.posReadyToWalk();
+    // leg5.posReadyToWalk();
+    // leg6.posReadyToWalk();
+    // usleep(10000000);
 
 
     //-------------------------

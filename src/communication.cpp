@@ -87,13 +87,16 @@ int Communication::COM(int id, uint8_t cmdValue, int responseLen, int cmdPacketL
         {
             case 1:
                 std::cout << "La réponse est " << (int)result[5] << std::endl;
+                delete[] cmdPacket;
                 return (int)result[5];
             case 2:
                 //uint16_t res =(uint8_t)result[5], (uint8_t)result[6];
+                delete[] cmdPacket;
                 return ((uint16_t)result[6]) << 8 | ((uint16_t) result[5]); // Récupération de l'octet qui combine le higher et lower bits
         }
     } else 
     {
+        delete[] cmdPacket;
         std::cout << "Erreur aucun packet n'a été reçus en retour ! id : " << id << std::endl;
     }
     return -1;
@@ -104,6 +107,7 @@ void Communication::WRITE(int id, uint8_t cmdValue, int cmdPacketLen, uint8_t pa
     std::cout << "write " << id << std::endl;
     uint8_t *cmdPacket = fnctCreatePacket(id,cmdValue,parameters,parametersLen); // write ne fonctionne plus
     write(m_device, cmdPacket, cmdPacketLen);
+    delete[] cmdPacket;
 }
 
 void Communication::READ(uint8_t result[], int nbBytes)

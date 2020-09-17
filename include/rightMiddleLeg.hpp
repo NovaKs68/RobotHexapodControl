@@ -10,6 +10,7 @@ public:
 
     RightMiddleLeg();
     int posReadyToWalkWait();
+    int posDownToPosReadyToWalk();
     int posReadyToWalk();
 
 private:

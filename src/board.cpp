@@ -22,7 +22,7 @@ Board::Board()
     {   // Parcours tous les servos afin d'init le tableau récapitulant si ils sont en mouvement en comparant deux fois leur position
         for(int i=1; i<=18; i++)
         {
-            Servo servo(i);     
+            Servo servo(i);   
             int currentAngle = servo.READ_Servo_Angle();
             int test = servo.READ_id();
 
@@ -58,6 +58,21 @@ Board& Board::Instance()
 bool Board::getAction(int numeroServo)
 {
     return m_boardServosAction[(numeroServo -1)];
+}
+
+bool Board::getBoardActionServoFinished(int servoId)
+{
+    for(int i{0}; i < 2000; i++)
+    {
+        // Si le servo n'est pas en mouvement
+        if (!m_boardServosAction[(servoId - 1)])
+        {
+            return true;
+        }
+        usleep(1000);
+    }
+
+    return false;
 }
 
 bool Board::getBoardActive()

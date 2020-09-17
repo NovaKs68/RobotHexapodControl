@@ -19,14 +19,16 @@ int Leg::posDown()
                 
                 // Déclarer les servos en mouvement
                 board.setServoAction(m_servoIdCoxa, 120);
-                board.setServoAction(m_servoIdFemur, 40);
+                board.setServoAction(m_servoIdFemur, 30);
                 board.setServoAction(m_servoIdTibia, 60);
 
-                m_servoFemur.WRITE_Servo_Angle(40,0.5);
+                m_servoFemur.WRITE_Servo_Angle(30,0.5);
                 m_servoCoxa.WRITE_Servo_Angle(120,1);
                 m_servoTibia.WRITE_Servo_Angle(60,1);
 
                 board.setBoardActive(true); // Réactive le board
+
+                // L'ordre s'est bien envoyé
                 return 1;
             }
         }
@@ -78,4 +80,21 @@ int Leg::currentPos() // Pas fonctionnel probleme : return un array
     currAngle[2] = m_servoTibia.READ_Servo_Angle();
 
     return *currAngle;
+}
+
+bool Leg::getMoveFinished()
+{
+    Board& board=Board::Instance();
+    bool move1 = board.getBoardActionServoFinished(m_servoIdCoxa);
+    bool move2 = board.getBoardActionServoFinished(m_servoIdFemur);
+    bool move3 = board.getBoardActionServoFinished(m_servoIdTibia);
+
+    if (move1 && move2 && move3)
+    {
+        return true;
+    } else 
+    {
+        std::cout << "Warning : Patte avec servoId : " << m_servoIdTibia << " n'a pas fini son mouvement." << std::endl;
+        return false;
+    }
 }
