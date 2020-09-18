@@ -13,26 +13,27 @@
 #include "rightMiddleLeg.hpp"
 
 // Devra prendre en compte quand les pos on pu etre effectués et quand l'envoi d'ordre ne s'est pas fait
-class Body {
+class Body
+{
 
 public:
     // Constructeur singlton
-    static Body& Instance();
+    static Body &Instance();
 
     void bodyPosReadyToWalk();
     void bodyPosDownToPosReadyToWalk();
     void bodyPosDown();
 
 private:
-
-    // singleton 
-    Body& operator= (const Body&);
-    Body (const Body&);
+    // singleton
+    Body &operator=(const Body &);
+    Body(const Body &);
     static Body m_instance;
     Body();
     ~Body();
 
     std::ofstream m_fluxError;
+    int m_bodyPosCurrent; // 1 est posDown, 2 posReadyToWalk
 
     RightFrontLeg m_leg1;
     RightMiddleLeg m_leg2;
@@ -40,7 +41,6 @@ private:
     LeftBackLeg m_leg4;
     LeftMiddleLeg m_leg5;
     LeftFrontLeg m_leg6;
-    
 };
 
 #endif

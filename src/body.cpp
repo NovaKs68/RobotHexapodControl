@@ -24,6 +24,7 @@ Body& Body::Instance()
 
 void Body::bodyPosDown()
 {
+    m_bodyPosCurrent = {1}; // En en posDown
     m_leg1.posDown();
     m_leg2.posDown();
     m_leg3.posDown();
@@ -52,6 +53,12 @@ void Body::bodyPosDown()
 
 void Body::bodyPosReadyToWalk()
 {
+    // Si la position est posDown
+    if (m_bodyPosCurrent == 1)
+    {
+        this->bodyPosDownToPosReadyToWalk();
+        m_bodyPosCurrent = {2}; // Est en posReadyToWalk
+    } else if (m_bodyPosCurrent == 2) // Si la position est posReadyToWalk
     m_leg1.posReadyToWalk();
     m_leg2.posReadyToWalk();
     m_leg3.posReadyToWalk();

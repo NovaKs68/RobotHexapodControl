@@ -8,21 +8,19 @@
 #include <fcntl.h>   // Contient O_RDWR
 #include <unistd.h>  // write(), read(), close()
 #include <termios.h> // Pour paramétrer le port dont le baud rate
-#include <thread> // A mettre dans le body par la suite
+#include <thread>    // A mettre dans le body par la suite
 // #include <chrono>
-
-
 
 int main()
 {
     std::cout << "Debut du programme !" << std::endl;
-    Body& body=Body::Instance();
-
+    Body &body = Body::Instance();
+    while (1)
+    {
         body.bodyPosDown();
         body.bodyPosReadyToWalk();
         usleep(80000);
-    
-    
+    }
 
     //-------------------------
     //------- TEST BODY -------
@@ -34,10 +32,6 @@ int main()
     // auto leg4{LeftBackLeg()};
     // auto leg5{LeftMiddleLeg()};
     // auto leg6{LeftFrontLeg()};
-
-    
-
-
 
     // leg1.posDown();
     // leg2.posDown();
@@ -71,7 +65,6 @@ int main()
     // leg6.posReadyToWalk();
     // usleep(10000000);
 
-
     //-------------------------
     //------- TEST LEGS -------
     //-------------------------
@@ -84,31 +77,29 @@ int main()
     // servo17.WRITE_Servo_Angle(140,0);
     // servo18.WRITE_Servo_Angle(180,0);
 
-
     // auto leg1{Leg(1,2,3)};
-    // auto leg2{Leg(4,5,6)}; 
+    // auto leg2{Leg(4,5,6)};
     // auto leg3{Leg(7,8,9)};
     // usleep(80000);
     // auto leg4{LeftBackLeg()};
     // auto leg5{Leg(13,14,15)};
     // auto leg6{Leg(16,17,18)};
     // leg1.posDownWait();
-    // leg2.posDownWait(); 
+    // leg2.posDownWait();
     // leg3.posDownWait();
     // leg4.posReadyToWalk();
     // leg5.posDownWait();
     // leg6.posDownWait();
     // leg1.start();
 
-
-     // int result2 = servo2.READ_id();
-     // servo2.WRITE_Servo_Angle(90,0);
-     // int result1 = servo1.READ_id();
-     //servo1.WRITE_Servo_Angle(0,3);
-     //usleep(3000000);
-     //servo1.WRITE_Servo_Angle(240,3);
-     //usleep(3000000);
-     //servo1.WRITE_Servo_Angle(0,3);
+    // int result2 = servo2.READ_id();
+    // servo2.WRITE_Servo_Angle(90,0);
+    // int result1 = servo1.READ_id();
+    //servo1.WRITE_Servo_Angle(0,3);
+    //usleep(3000000);
+    //servo1.WRITE_Servo_Angle(240,3);
+    //usleep(3000000);
+    //servo1.WRITE_Servo_Angle(0,3);
 
     //-------------------------
     //------ TEST SERVOS ------
@@ -142,11 +133,9 @@ int main()
     // int elapsed_seconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     // std::cout << "Result: " << a << ", elapsed time: " << elapsed_seconds << "microsec" << std::endl;
 
-
     // while(1)
     // {
 
-    
     // int a = servo1.READ_Servo_Angle();
     // int b = servo2.READ_Servo_Angle();
     // int c = servo3.READ_Servo_Angle();
@@ -296,7 +285,6 @@ int main()
     // servo6.WRITE_Servo_Move_Time_Wait(120,0);
     // usleep(3000000);
     // servo254.WRITE_Servo_Move_Start();
-
 
     return 0;
 }

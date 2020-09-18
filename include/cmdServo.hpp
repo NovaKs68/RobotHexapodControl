@@ -6,10 +6,10 @@
 #include <array>
 #include "communication.hpp"
 
-class Servo {
+class Servo
+{
 
 public:
-
     Servo(int id);
     int READ_id();
     void WRITE_Servo_Angle(float angle, float time);
@@ -20,7 +20,6 @@ public:
     //static bool fileAttenteIndex(int,int);
 
 private:
-
     int a_id;
     static int m_fileAttenteIndex[2]; // La première valeur du tableau est l'index du servo en attente et la deuxième est l'index du servo qui va passer
 };

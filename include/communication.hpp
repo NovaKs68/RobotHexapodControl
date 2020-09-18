@@ -7,24 +7,22 @@
 #include <unistd.h>
 #include "cmdServo.hpp"
 
-class Communication {
+class Communication
+{
 
 public:
-
-
     // Constructeur singlton
-    static Communication& Instance();
+    static Communication &Instance();
 
     // Objects
-    int COM(int id,uint8_t cmdValue, int cmdLen, int responseLen, uint8_t parameters[] = 0, int parametersLen = 0);
+    int COM(int id, uint8_t cmdValue, int cmdLen, int responseLen, uint8_t parameters[] = 0, int parametersLen = 0);
     void WRITE(int id, uint8_t cmdValue, int cmdLen, uint8_t parameters[] = 0, int parametersLen = 0);
     void READ(uint8_t result[], int nbBytes);
 
 private:
-
     // singlton
-    Communication& operator= (const Communication&);
-    Communication (const Communication&);
+    Communication &operator=(const Communication &);
+    Communication(const Communication &);
 
     static Communication m_instance;
     Communication();

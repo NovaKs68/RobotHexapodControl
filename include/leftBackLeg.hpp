@@ -4,18 +4,16 @@
 #include <iostream>
 #include "leg.hpp"
 
-class LeftBackLeg : public Leg {
+class LeftBackLeg : public Leg
+{
 
 public:
-
     LeftBackLeg();
     int posReadyToWalkWait();
     int posDownToPosReadyToWalk();
     int posReadyToWalk();
- 
+
 private:
-
-
 };
 
 #endif
