@@ -157,45 +157,48 @@ int main()
 
     // std::cout << a << " " << b << " " << c << " " << d << " " << e << " " << f << " " << g << " " << h << " " << i << " " << j << " " << k << " " << l << " " << m << " " << n << " " << o << " " << p << " " << q << " " << r << std::endl;
     // }
-    // servo1.WRITE_Servo_Angle(120,0);
-    // servo2.WRITE_Servo_Angle(80,0);
-    // servo3.WRITE_Servo_Angle(60,0);
-    // servo4.WRITE_Servo_Angle(120,0);
-    // servo5.WRITE_Servo_Angle(80,0);
-    // servo6.WRITE_Servo_Angle(40,0);
-    // servo7.WRITE_Servo_Angle(120,0);
-    // servo8.WRITE_Servo_Angle(80,0);
-    // servo9.WRITE_Servo_Angle(60,0);
-    // servo10.WRITE_Servo_Angle(120,0);
-    // servo11.WRITE_Servo_Angle(80,0);
-    // servo12.WRITE_Servo_Angle(60,0);
-    // servo13.WRITE_Servo_Angle(120,0);
-    // servo14.WRITE_Servo_Angle(80,0);
-    // servo15.WRITE_Servo_Angle(40,0);
-    // servo16.WRITE_Servo_Angle(120,0);
-    // servo17.WRITE_Servo_Angle(80,0);
-    // servo18.WRITE_Servo_Angle(60,0);
 
-    // usleep(800000);
+    // POS ADJUST TIBIA
 
     // servo1.WRITE_Servo_Angle(120,0);
-    // servo2.WRITE_Servo_Angle(100,0);
-    // servo3.WRITE_Servo_Angle(40,0);
+    // servo2.WRITE_Servo_Angle(30,0);
+    // servo3.WRITE_Servo_Angle(90,0);
     // servo4.WRITE_Servo_Angle(120,0);
-    // servo5.WRITE_Servo_Angle(100,0);
-    // servo6.WRITE_Servo_Angle(40,0);
+    // servo5.WRITE_Servo_Angle(30,0);
+    // servo6.WRITE_Servo_Angle(90,0);
     // servo7.WRITE_Servo_Angle(120,0);
-    // servo8.WRITE_Servo_Angle(100,0);
-    // servo9.WRITE_Servo_Angle(40,0);
+    // servo8.WRITE_Servo_Angle(30,0);
+    // servo9.WRITE_Servo_Angle(90,0);
     // servo10.WRITE_Servo_Angle(120,0);
-    // servo11.WRITE_Servo_Angle(100,0);
-    // servo12.WRITE_Servo_Angle(40,0);
+    // servo11.WRITE_Servo_Angle(30,0);
+    // servo12.WRITE_Servo_Angle(90,0);
     // servo13.WRITE_Servo_Angle(120,0);
-    // servo14.WRITE_Servo_Angle(100,0);
-    // servo15.WRITE_Servo_Angle(40,0);
+    // servo14.WRITE_Servo_Angle(30,0);
+    // servo15.WRITE_Servo_Angle(90,0);
     // servo16.WRITE_Servo_Angle(120,0);
-    // servo17.WRITE_Servo_Angle(100,0);
-    // servo18.WRITE_Servo_Angle(40,0);
+    // servo17.WRITE_Servo_Angle(30,0);
+    // servo18.WRITE_Servo_Angle(90,0);
+
+    // POS ADJUST FEMUR
+
+    // servo1.WRITE_Servo_Angle(120,0);
+    // servo2.WRITE_Servo_Angle(120,0);
+    // servo3.WRITE_Servo_Angle(90,0);
+    // servo4.WRITE_Servo_Angle(120,0);
+    // servo5.WRITE_Servo_Angle(120,0);
+    // servo6.WRITE_Servo_Angle(90,0);
+    // servo7.WRITE_Servo_Angle(120,0);
+    // servo8.WRITE_Servo_Angle(120,0);
+    // servo9.WRITE_Servo_Angle(90,0);
+    // servo10.WRITE_Servo_Angle(120,0);
+    // servo11.WRITE_Servo_Angle(120,0);
+    // servo12.WRITE_Servo_Angle(90,0);
+    // servo13.WRITE_Servo_Angle(120,0);
+    // servo14.WRITE_Servo_Angle(120,0);
+    // servo15.WRITE_Servo_Angle(90,0);
+    // servo16.WRITE_Servo_Angle(120,0);
+    // servo17.WRITE_Servo_Angle(120,0);
+    // servo18.WRITE_Servo_Angle(90,0);
 
     // servo1.WRITE_Servo_Move_Time_Wait(120,0);
     // usleep(10000);

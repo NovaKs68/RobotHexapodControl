@@ -24,7 +24,7 @@ Body& Body::Instance()
 
 void Body::bodyPosDown()
 {
-    m_bodyPosCurrent = {1}; // En en posDown
+    m_bodyPosCurrent = {"posDown"}; // En en posDown
     m_leg1.posDown();
     m_leg2.posDown();
     m_leg3.posDown();
@@ -54,11 +54,15 @@ void Body::bodyPosDown()
 void Body::bodyPosReadyToWalk()
 {
     // Si la position est posDown
-    if (m_bodyPosCurrent == 1)
+    if (m_bodyPosCurrent == "posDown")
     {
         this->bodyPosDownToPosReadyToWalk();
-        m_bodyPosCurrent = {2}; // Est en posReadyToWalk
-    } else if (m_bodyPosCurrent == 2) // Si la position est posReadyToWalk
+        m_bodyPosCurrent = {"posReadyToWalk"}; // Est en posReadyToWalk
+    } else if (m_bodyPosCurrent == "posReadyToWalk") // Si la position est posReadyToWalk
+    {
+
+    }
+
     m_leg1.posReadyToWalk();
     m_leg2.posReadyToWalk();
     m_leg3.posReadyToWalk();
@@ -84,5 +88,18 @@ void Body::bodyPosReadyToWalk()
 
 void Body::bodyPosDownToPosReadyToWalk()
 {
+    m_leg1.posDownToPosReadyToWalk1();
+    m_leg2.posDownToPosReadyToWalk1();
+    m_leg3.posDownToPosReadyToWalk1();
+    m_leg4.posDownToPosReadyToWalk1();
+    m_leg5.posDownToPosReadyToWalk1();
+    m_leg6.posDownToPosReadyToWalk1();
+
+    m_leg1.posDownToPosReadyToWalk2();
+    m_leg2.posDownToPosReadyToWalk2();
+    m_leg3.posDownToPosReadyToWalk2();
+    m_leg4.posDownToPosReadyToWalk2();
+    m_leg5.posDownToPosReadyToWalk2();
+    m_leg6.posDownToPosReadyToWalk2();
     
 }

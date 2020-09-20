@@ -10,7 +10,8 @@ class LeftMiddleLeg : public Leg
 public:
     LeftMiddleLeg();
     int posReadyToWalkWait();
-    int posDownToPosReadyToWalk();
+    int posDownToPosReadyToWalk1();
+    int posDownToPosReadyToWalk2();
     int posReadyToWalk();
 
 private:

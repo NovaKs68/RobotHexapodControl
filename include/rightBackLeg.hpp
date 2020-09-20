@@ -10,7 +10,8 @@ class RightBackLeg : public Leg
 public:
     RightBackLeg();
     int posReadyToWalkWait();
-    int posDownToPosReadyToWalk();
+    int posDownToPosReadyToWalk1();
+    int posDownToPosReadyToWalk2();
     int posReadyToWalk();
 
 private:

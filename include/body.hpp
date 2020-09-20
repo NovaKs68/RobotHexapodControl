@@ -32,8 +32,11 @@ private:
     Body();
     ~Body();
 
+    // Methode/Fonction 
+    bool bodyAction(); // true si l'action s'est bien passé et false si la pos n'a pas pu se faire
+
     std::ofstream m_fluxError;
-    int m_bodyPosCurrent; // 1 est posDown, 2 posReadyToWalk
+    std::string m_bodyPosCurrent; // posDown, posReadyToWalk
 
     RightFrontLeg m_leg1;
     RightMiddleLeg m_leg2;
