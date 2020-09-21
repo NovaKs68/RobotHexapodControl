@@ -1,4 +1,52 @@
-Le bodyPosDown s'est bien effectué !
-Le bodyPosDown s'est bien effectué !
-Le bodyPosDown s'est bien effectué !
-Le bodyPosDown s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !
+Le mouvement : posDown s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk1 s'est bien effectué !
+Le mouvement : posDownToPosReadyToWalk2 s'est bien effectué !
+Le mouvement : posReadyToWalk s'est bien effectué !

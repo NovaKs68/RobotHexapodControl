@@ -11,8 +11,7 @@ public:
     RightFrontLeg();
     int posReadyToWalkWait();
     int posDownToPosReadyToWalk1();
-    int posDownToPosReadyToWalk2();
-    int posReadyToWalk();
+    int posReadyToWalk(double timeCoxa, double timeFemur, double timeTibia);
 
 private:
 };
