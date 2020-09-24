@@ -15,12 +15,29 @@ int main()
 {
     std::cout << "Debut du programme !" << std::endl;
     Body &body = Body::Instance();
-    while (1)
+    usleep(8000000);
+    for (int i{0}; i < 2; i++)
     {
         body.bodyPosDown();
         body.bodyPosReadyToWalk();
-        usleep(80000);
     }
+
+    body.walkLeft1();
+
+    for (int i{0}; i < 3; i++)
+    {
+        body.walkLeft2();
+        body.walkLeft3();
+        body.walkLeft4();
+        body.walkLeft5();
+        body.walkRight2();
+        body.walkRight3();
+        body.walkRight4();
+        body.walkRight5();
+    }
+    
+    body.walkRight6();
+    body.bodyPosDown();
 
     //-------------------------
     //------- TEST BODY -------

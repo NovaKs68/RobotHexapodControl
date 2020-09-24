@@ -16,7 +16,7 @@ Board::Board()
         m_boardServosAngle[i - 1] = 0;
     }
     m_boardActive = true;
-    int a = 2;
+    int a{2};
     // Répéter 2 fois l'action afin d'init le tableau
     while (a)
     { // Parcours tous les servos afin d'init le tableau récapitulant si ils sont en mouvement en comparant deux fois leur position

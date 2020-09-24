@@ -14,7 +14,7 @@ public:
     int currentPos();                                                                                     // Devra retourner les positions du coxa, femur, tibia // Pas fonctionnel probleme : return un array
     int posDownWait();                                                                                    // Devra retourer 1 quand il sera prêt
     int posDown();                                                                                        // Retourne 1 quand l'action est fini et 0 lorsqu'il y a eu un problème et que le mouvement n'a pas pu être fait
-    int posReadyToWalk(double angleCoxa, double angleFemur, double angleTibia, double timeCoxa, double timeFemur, double timeTibia);
+    int posReadyToWalkAngleTime(double angleCoxa, double angleFemur, double angleTibia, double timeCoxa, double timeFemur, double timeTibia);
     void angleAdjuste(int angleAdjusteServoCoxa, int angleAdjusteServoFemur, int angleAdjusteServoTibia); // Va permettre d'ajuster temporairement l'angle des servos de la patte
     bool getMoveFinished();
 

@@ -51,6 +51,12 @@ void Body::bodyPosReadyToWalk()
         m_leg5.posReadyToWalk(0,2,0);
         m_leg6.posReadyToWalk(0,2,0);
     }
+    m_leg1.posReadyToWalk(0,2,0);
+        m_leg2.posReadyToWalk(0,2,0);
+        m_leg3.posReadyToWalk(0,2,0);
+        m_leg4.posReadyToWalk(0,2,0);
+        m_leg5.posReadyToWalk(0,2,0);
+        m_leg6.posReadyToWalk(0,2,0);
 
     bodyAction(); // Debug
 }
@@ -72,7 +78,7 @@ void Body::bodyPosDownToPosReadyToWalk()
     m_leg4.posReadyToWalk(0,0,0.5);
     m_leg5.posReadyToWalk(0,0,0.5);
     m_leg6.posReadyToWalk(0,0,0.5);
-    m_bodyPosCurrent = {"posDownToPosReadyToWalk2"};
+    m_bodyPosCurrent = {"posReadyToWalk"};
     bodyAction();
 }
 
@@ -117,4 +123,160 @@ bool Body::bodyAction()
 
         return false; // Le mouvement n'est pas fait 
     }
+}
+
+int Body::walkRight1()
+{
+    m_leg1.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkRight2()
+{
+    m_leg1.posReadyToWalkAngleTime(145,30,80,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(160,30,30,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(80,30,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkRight3()
+{
+    m_leg1.posReadyToWalkAngleTime(145,85,80,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(160,70,30,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(80,75,50,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkRight4()
+{
+    m_leg1.posReadyToWalkAngleTime(145,85,80,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(160,70,25,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(80,75,50,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkRight5()
+{
+    m_leg1.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkRight6()
+{
+    m_leg1.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkLeft1()
+{
+    m_leg1.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkLeft2()
+{
+    m_leg1.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(160,30,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(80,30,30,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(95,30,80,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkLeft3()
+{
+    m_leg1.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(160,75,50,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(80,70,30,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(95,85,80,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkLeft4()
+{
+    m_leg1.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(160,75,50,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(80,70,25,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(95,85,80,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkLeft5()
+{
+    m_leg1.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,30,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
+}
+
+int Body::walkLeft6()
+{
+    m_leg1.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg2.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg3.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg4.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_leg5.posReadyToWalkAngleTime(120,75,40,0.5,0.5,0.5);
+    m_leg6.posReadyToWalkAngleTime(120,70,40,0.5,0.5,0.5);
+    m_bodyPosCurrent = {"posWalkRight1"};
+    bodyAction();
+    return 1;
 }

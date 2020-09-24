@@ -50,7 +50,7 @@ int Leg::posDownWait()
     return 1;
 }
 
-int Leg::posReadyToWalk(double angleCoxa, double angleFemur, double angleTibia, double timeCoxa, double timeFemur, double timeTibia)
+int Leg::posReadyToWalkAngleTime(double angleCoxa, double angleFemur, double angleTibia, double timeCoxa, double timeFemur, double timeTibia)
 {
     Board &board = Board::Instance();
     for (int i = 1; i <= 2000; i++)
@@ -59,18 +59,14 @@ int Leg::posReadyToWalk(double angleCoxa, double angleFemur, double angleTibia, 
         {
             board.setBoardActive(false); // Désactive le board
 
-            int posServoCoxa{120};
-            int posServoFemur{70};
-            int posServoTibia{40};
-
             // Déclarer les servos en mouvement
-            board.setServoAction(m_servoIdCoxa, posServoCoxa);
-            board.setServoAction(m_servoIdFemur, posServoFemur); 
-            board.setServoAction(m_servoIdTibia, posServoTibia);
+            board.setServoAction(m_servoIdCoxa, angleCoxa);
+            board.setServoAction(m_servoIdFemur, angleFemur); 
+            board.setServoAction(m_servoIdTibia, angleTibia);
 
-            m_servoCoxa.WRITE_Servo_Angle(posServoCoxa, timeCoxa);
-            m_servoTibia.WRITE_Servo_Angle(posServoTibia, timeFemur);
-            m_servoFemur.WRITE_Servo_Angle(posServoFemur, timeTibia);
+            m_servoCoxa.WRITE_Servo_Angle(angleCoxa, timeCoxa);
+            m_servoTibia.WRITE_Servo_Angle(angleTibia, timeFemur);
+            m_servoFemur.WRITE_Servo_Angle(angleFemur, timeTibia);
 
             board.setBoardActive(true); // Réactive le board
 

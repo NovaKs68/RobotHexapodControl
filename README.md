@@ -27,6 +27,8 @@ Il n'y aura pas besoin de motor mode dans tous les cas.
 
 ### Fonctionnement général : 
 
+![Diagramme de classe représentant le programme actuel. Par la suite je vais faire du polymorphisme sur l'héritage de leg.](img/UMLRobotHexapod.png?raw=true "UMLRobotHexapod")
+
 ###### Main.cpp : 
 
 Représente le client. C'est à dire que c'est lui qui va choisir le comportement du robot.
