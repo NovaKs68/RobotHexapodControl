@@ -15,29 +15,126 @@ int main()
 {
     std::cout << "Debut du programme !" << std::endl;
     Body &body = Body::Instance();
-    usleep(8000000);
-    for (int i{0}; i < 2; i++)
+    int i{0};
+    while(i == 0)
     {
-        body.bodyPosDown();
-        body.bodyPosReadyToWalk();
+        std::cout << "Que veux-tu faire ?" << std::endl;
+        std::cout << "1-Allonger" << std::endl;
+        std::cout << "2-Se relever" << std::endl;
+        std::cout << "3-Avancer" << std::endl;
+        std::cout << "4-Reculer" << std::endl;
+        std::cout << "5-Tourner à droite" << std::endl;
+        std::cout << "6-Tourner à gauche" << std::endl;
+        std::cout << "7-Stop" << std::endl;
+        int a;
+        std::cin >> a;
+        switch(a) {
+            case 1:
+                body.bodyPosDown();
+                break;
+            case 2:
+                body.bodyPosDownToPosReadyToWalk();
+                break;
+            case 3:
+                body.walkLeft1();
+                body.walkLeft2();
+                body.walkLeft3();
+                body.walkLeft4();
+                body.walkLeft5();
+                body.walkRight2();
+                body.walkRight3();
+                body.walkRight4();
+                body.walkRight5();
+                body.walkRight6();
+                break;
+            case 4:
+                body.walkLeft1();
+                body.walkBackLeft2();
+                body.walkBackLeft3();
+                body.walkBackLeft4();
+                body.walkBackLeft5();
+                body.walkBackRight2();
+                body.walkBackRight3();
+                body.walkBackRight4();
+                body.walkBackRight5();
+                body.walkBackRight6();
+                break;
+            case 5:
+                body.walkLeft1();
+                body.rotateLeft2();
+                body.rotateLeft3();
+                body.rotateLeft4();
+                body.rotateLeft5();
+                body.walkLeft6();
+                break;
+            case 6:
+                body.walkRight1();
+                body.rotateRight2();
+                body.rotateRight3();
+                body.rotateRight4();
+                body.rotateRight5();
+                body.walkRight6();
+                break;
+            case 7:
+                i++;
+                break;
+            default:
+                std::cout << "Ce n'est pas une commande !" << std::endl;
+        }
     }
 
-    body.walkLeft1();
+    // body.bodyPosReadyToWalk();
+    // body.walkBackRight1();
+    // body.walkBackRight2();
+    // body.walkBackRight3();
+    // body.walkBackRight4();
+    // body.walkBackRight5();
+    // body.walkBackRight6();
+    // body.bodyPosReadyToWalk();
+    // body.walkBackLeft1();
+    // body.walkBackLeft2();
+    // body.walkBackLeft3();
+    // body.walkBackLeft4();
+    // body.walkBackLeft5();
+    // body.walkBackLeft6();
 
-    for (int i{0}; i < 3; i++)
-    {
-        body.walkLeft2();
-        body.walkLeft3();
-        body.walkLeft4();
-        body.walkLeft5();
-        body.walkRight2();
-        body.walkRight3();
-        body.walkRight4();
-        body.walkRight5();
-    }
+    // usleep(5000000);
+    // for (int i{0}; i < 2; i++)
+    // {
+    //     body.bodyPosDown();
+    //     body.bodyPosReadyToWalk();
+    // }
+
+    // body.walkLeft1();
+
+    // for (int i{0}; i < 3; i++)
+    // {
+    //     body.walkLeft2();
+    //     body.walkLeft3();
+    //     body.walkLeft4();
+    //     body.walkLeft5();
+    //     body.walkRight2();
+    //     body.walkRight3();
+    //     body.walkRight4();
+    //     body.walkRight5();
+    // }
     
-    body.walkRight6();
-    body.bodyPosDown();
+    // body.walkRight6();
+    // body.bodyPosDown();
+    //body.bodyPosReadyToWalk();
+    // usleep(1000000);
+    // body.walkRight1();
+    // body.rotateRight2();
+    // body.rotateRight3();
+    // body.rotateRight4();
+    // body.rotateRight5();
+    // body.rotateRight6();
+    // body.walkLeft1();
+    // body.rotateLeft2();
+    // body.rotateLeft3();
+    // body.rotateLeft4();
+    // body.rotateLeft5();
+    // body.walkLeft6();
 
     //-------------------------
     //------- TEST BODY -------
@@ -150,6 +247,8 @@ int main()
     // int elapsed_seconds = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
     // std::cout << "Result: " << a << ", elapsed time: " << elapsed_seconds << "microsec" << std::endl;
 
+    // Pour tester tous les servos :
+
     // while(1)
     // {
 
@@ -217,94 +316,7 @@ int main()
     // servo17.WRITE_Servo_Angle(120,0);
     // servo18.WRITE_Servo_Angle(90,0);
 
-    // servo1.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo2.WRITE_Servo_Move_Time_Wait(80,0);
-    // usleep(10000);
-    // servo3.WRITE_Servo_Move_Time_Wait(60,0);
-    // usleep(10000);
-    // servo4.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo5.WRITE_Servo_Move_Time_Wait(80,0);
-    // usleep(10000);
-    // servo6.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo7.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo8.WRITE_Servo_Move_Time_Wait(80,0);
-    // usleep(10000);
-    // servo9.WRITE_Servo_Move_Time_Wait(60,0);
-    // usleep(10000);
-    // servo10.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo11.WRITE_Servo_Move_Time_Wait(80,0);
-    // usleep(10000);
-    // servo12.WRITE_Servo_Move_Time_Wait(60,0);
-    // usleep(10000);
-    // servo13.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo14.WRITE_Servo_Move_Time_Wait(80,0);
-    // usleep(10000);
-    // servo15.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo16.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo17.WRITE_Servo_Move_Time_Wait(80,0);
-    // usleep(10000);
-    // servo18.WRITE_Servo_Move_Time_Wait(60,0);
-    // usleep(10000);
-
-    // servo254.WRITE_Servo_Move_Start();
-
-    // servo1.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo2.WRITE_Servo_Move_Time_Wait(100,0);
-    // usleep(10000);
-    // servo3.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo4.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo5.WRITE_Servo_Move_Time_Wait(100,0);
-    // usleep(10000);
-    // servo6.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo7.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo8.WRITE_Servo_Move_Time_Wait(100,0);
-    // usleep(10000);
-    // servo9.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo10.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo11.WRITE_Servo_Move_Time_Wait(100,0);
-    // usleep(10000);
-    // servo12.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo13.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo14.WRITE_Servo_Move_Time_Wait(100,0);
-    // usleep(10000);
-    // servo15.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-    // servo16.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(10000);
-    // servo17.WRITE_Servo_Move_Time_Wait(100,0);
-    // usleep(10000);
-    // servo18.WRITE_Servo_Move_Time_Wait(40,0);
-    // usleep(10000);
-
-    // servo254.WRITE_Servo_Move_Start();
-
-    // auto servo254{Servo(254)};
-    // auto servo4{Servo(4)};
-    // auto servo5{Servo(5)};
-    // auto servo6{Servo(6)};
-
-    // servo4.WRITE_Servo_Move_Time_Wait(120,0);
-    // servo5.WRITE_Servo_Move_Time_Wait(120,0);
-    // servo6.WRITE_Servo_Move_Time_Wait(120,0);
-    // usleep(3000000);
-    // servo254.WRITE_Servo_Move_Start();
+    
 
     return 0;
 }

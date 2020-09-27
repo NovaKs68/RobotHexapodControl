@@ -23,6 +23,7 @@ public:
     void bodyPosReadyToWalk();
     void bodyPosDownToPosReadyToWalk();
     void bodyPosDown();
+
     int walkRight1(); // Trois pattes se lèvent, dont 2 coté droit
     int walkRight2(); // Les trois pattes levées, avancent
     int walkRight3(); // Les trois pattes se posent
@@ -37,6 +38,31 @@ public:
     int walkLeft5(); // Les trois pattes se remettent dans leur pos initiale (ce qui va faire avancer le robot)
     int walkLeft6(); // Les trois pattes opposées se posent
 
+    // Pour le premier et dernier mouvement, c'est le meme que walkRight1 et walkRight6
+    int rotateRight2();
+    int rotateRight3();
+    int rotateRight4();
+    int rotateRight5();
+
+    // Pour le premier et dernier mouvement, c'est le meme que walkLeft1 et walkLeft6
+    int rotateLeft2();
+    int rotateLeft3();
+    int rotateLeft4();
+    int rotateLeft5();
+
+    int walkBackRight1();
+    int walkBackRight2();
+    int walkBackRight3();
+    int walkBackRight4();
+    int walkBackRight5();
+    int walkBackRight6();
+
+    int walkBackLeft1();
+    int walkBackLeft2();
+    int walkBackLeft3();
+    int walkBackLeft4();
+    int walkBackLeft5();
+    int walkBackLeft6();
 
 
 private:
