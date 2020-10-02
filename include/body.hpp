@@ -39,15 +39,15 @@ public:
     int walkLeft6(); // Les trois pattes opposées se posent
 
     // Pour le premier et dernier mouvement, c'est le meme que walkRight1 et walkRight6
-    int rotateRight2();
-    int rotateRight3();
-    int rotateRight4();
+    int rotateRight2(int degres);
+    int rotateRight3(int degres);
+    int rotateRight4(int degres);
     int rotateRight5();
 
     // Pour le premier et dernier mouvement, c'est le meme que walkLeft1 et walkLeft6
-    int rotateLeft2();
-    int rotateLeft3();
-    int rotateLeft4();
+    int rotateLeft2(int degres);
+    int rotateLeft3(int degres);
+    int rotateLeft4(int degres);
     int rotateLeft5();
 
     int walkBackRight1();

@@ -3,7 +3,7 @@
 #include <iostream>
 #include "cmdServo.hpp"
 #include "body.hpp"
-#include "board.hpp"
+#include "robotOverallMove.hpp"
 #include <pthread.h>
 #include <fcntl.h>   // Contient O_RDWR
 #include <unistd.h>  // write(), read(), close()
@@ -16,72 +16,74 @@ int main()
     std::cout << "Debut du programme !" << std::endl;
     Body &body = Body::Instance();
     int i{0};
-    while(i == 0)
-    {
-        std::cout << "Que veux-tu faire ?" << std::endl;
-        std::cout << "1-Allonger" << std::endl;
-        std::cout << "2-Se relever" << std::endl;
-        std::cout << "3-Avancer" << std::endl;
-        std::cout << "4-Reculer" << std::endl;
-        std::cout << "5-Tourner à droite" << std::endl;
-        std::cout << "6-Tourner à gauche" << std::endl;
-        std::cout << "7-Stop" << std::endl;
-        int a;
-        std::cin >> a;
-        switch(a) {
-            case 1:
-                body.bodyPosDown();
-                break;
-            case 2:
-                body.bodyPosDownToPosReadyToWalk();
-                break;
-            case 3:
-                body.walkLeft1();
-                body.walkLeft2();
-                body.walkLeft3();
-                body.walkLeft4();
-                body.walkLeft5();
-                body.walkRight2();
-                body.walkRight3();
-                body.walkRight4();
-                body.walkRight5();
-                body.walkRight6();
-                break;
-            case 4:
-                body.walkLeft1();
-                body.walkBackLeft2();
-                body.walkBackLeft3();
-                body.walkBackLeft4();
-                body.walkBackLeft5();
-                body.walkBackRight2();
-                body.walkBackRight3();
-                body.walkBackRight4();
-                body.walkBackRight5();
-                body.walkBackRight6();
-                break;
-            case 5:
-                body.walkLeft1();
-                body.rotateLeft2();
-                body.rotateLeft3();
-                body.rotateLeft4();
-                body.rotateLeft5();
-                body.walkLeft6();
-                break;
-            case 6:
-                body.walkRight1();
-                body.rotateRight2();
-                body.rotateRight3();
-                body.rotateRight4();
-                body.rotateRight5();
-                body.walkRight6();
-                break;
-            case 7:
-                i++;
-                break;
-            default:
-                std::cout << "Ce n'est pas une commande !" << std::endl;
-        }
-    }
+    RobotOverallMove robot;
+    robot.moveStepsForward(2);
+    // while(i == 0)
+    // {
+    //     std::cout << "Que veux-tu faire ?" << std::endl;
+    //     std::cout << "1-Allonger" << std::endl;
+    //     std::cout << "2-Se relever" << std::endl;
+    //     std::cout << "3-Avancer" << std::endl;
+    //     std::cout << "4-Reculer" << std::endl;
+    //     std::cout << "5-Tourner à droite" << std::endl;
+    //     std::cout << "6-Tourner à gauche" << std::endl;
+    //     std::cout << "7-Stop" << std::endl;
+    //     int a;
+    //     std::cin >> a;
+    //     switch(a) {
+    //         case 1:
+    //             body.bodyPosDown();
+    //             break;
+    //         case 2:
+    //             body.bodyPosDownToPosReadyToWalk();
+    //             break;
+    //         case 3:
+    //             body.walkLeft1();
+    //             body.walkLeft2();
+    //             body.walkLeft3();
+    //             body.walkLeft4();
+    //             body.walkLeft5();
+    //             body.walkRight2();
+    //             body.walkRight3();
+    //             body.walkRight4();
+    //             body.walkRight5();
+    //             body.walkRight6();
+    //             break;
+    //         case 4:
+    //             body.walkLeft1();
+    //             body.walkBackLeft2();
+    //             body.walkBackLeft3();
+    //             body.walkBackLeft4();
+    //             body.walkBackLeft5();
+    //             body.walkBackRight2();
+    //             body.walkBackRight3();
+    //             body.walkBackRight4();
+    //             body.walkBackRight5();
+    //             body.walkBackRight6();
+    //             break;
+    //         case 5:
+    //             body.walkLeft1();
+    //             body.rotateLeft2();
+    //             body.rotateLeft3();
+    //             body.rotateLeft4();
+    //             body.rotateLeft5();
+    //             body.walkLeft6();
+    //             break;
+    //         case 6:
+    //             body.walkRight1();
+    //             body.rotateRight2();
+    //             body.rotateRight3();
+    //             body.rotateRight4();
+    //             body.rotateRight5();
+    //             body.walkRight6();
+    //             break;
+    //         case 7:
+    //             i++;
+    //             break;
+    //         default:
+    //             std::cout << "Ce n'est pas une commande !" << std::endl;
+    //     }
+    // }
 
     // body.bodyPosReadyToWalk();
     // body.walkBackRight1();

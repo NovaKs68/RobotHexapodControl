@@ -1,1 +1,6 @@
-Le mouvement : posDown s'est bien effectué !
+Le mouvement : posWalkRight1 s'est bien effectué !
+Le mouvement : posWalkRight1 s'est bien effectué !
+Le mouvement : posWalkRight1 s'est bien effectué !
+Le mouvement : posWalkRight1 s'est bien effectué !
+Le mouvement : posWalkRight1 s'est bien effectué !
+Le mouvement : posWalkRight1 s'est bien effectué !
