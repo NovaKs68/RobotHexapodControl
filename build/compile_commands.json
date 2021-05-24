@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/tomwillemin/Documents/001-ProjetRobotHexapod/RobotHexapod/robotHexapodControl/build",
+  "command": "/usr/bin/g++-9   -I../include  -g   -std=gnu++2a -o CMakeFiles/robotHexapodControl.dir/src/test.cpp.o -c /home/tomwillemin/Documents/001-ProjetRobotHexapod/RobotHexapod/robotHexapodControl/src/test.cpp",
+  "file": "/home/tomwillemin/Documents/001-ProjetRobotHexapod/RobotHexapod/robotHexapodControl/src/test.cpp"
+}
+]
